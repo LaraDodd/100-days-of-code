@@ -1,0 +1,29 @@
+from turtle import Turtle, Screen
+import random
+
+tom = Turtle()
+colours = [ "yellow", "gold", "orange", "red", "maroon", "violet", "magenta", "purple", "navy", "blue", "skyblue"
+    , "cyan", "turquoise", "lightgreen", "green", "darkgreen", "chocolate", "brown", "black", "gray"]
+
+# #  draw square
+# tom.pencolor(random.choice(colours))
+# for i in range(4):
+#     tom.forward(50)
+#     tom.right(90)
+#
+# #  draw pentagon
+# tom.pencolor(random.choice(colours))
+# for i in range(5):
+#     tom.forward(50)
+#     tom.right(72)
+
+counter = 4
+while counter < 10:
+    tom.pencolor(random.choice(colours))
+    for i in range(counter):
+        tom.forward(100)
+        tom.right(360/counter)
+    counter += 1
+
+my_screen = Screen()
+my_screen.exitonclick()
