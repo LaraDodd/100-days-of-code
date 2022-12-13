@@ -4,5 +4,5 @@ class QuestionMaker:
         self.text = q_text
         self.answer = q_answer
 
-q1 = QuestionMaker("Lara is hilarious", True)
+#q1 = QuestionMaker("Lara is hilarious", True)
 
