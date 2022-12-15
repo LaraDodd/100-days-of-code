@@ -13,8 +13,6 @@ def move_forward(turtle_object):
     """Moves inputted turtle object forward by 10"""
     turtle_object.forward(10)
 
-user_guess = input("Which turtle do you think will win? Red, green, yellow, purple, or Tim? ").lower()
-
 #  Creating turtle object from the turtle class, with the name 'tim'
 tim = Turtle()
 tim.name = "Tim!!"  # assigning a name attribute 'Tim!!' to the turtle object tim
@@ -44,6 +42,8 @@ for turtle in turtle_object_list:
     turtle.shape("turtle")
 
 my_screen = Screen()
+user_guess = my_screen.textinput(title="Place ya bets!",
+                                 prompt="Which turtle do you think will win? Red, green, yellow, purple, or Tim?").lower()
 my_screen.setup(500, 400)
 my_screen.bgcolor("LightBlue")
 
