@@ -41,6 +41,8 @@ for turtle in turtle_object_list:
     turtle.penup()
     turtle.shape("turtle")
 
+#colours = ["red", "green", "blue", "purple", "yellow"]
+
 my_screen = Screen()
 user_guess = my_screen.textinput(title="Place ya bets!",
                                  prompt="Which turtle do you think will win? Red, green, yellow, purple, or Tim?").lower()
