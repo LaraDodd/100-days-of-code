@@ -7,6 +7,7 @@ screen.bgcolor("Black")
 screen.setup(height=600, width=600)
 screen.title("Snakety Snake Game")
 screen.listen()
+screen.tracer(0)
 
 
 #  initialise starting variables
@@ -22,7 +23,7 @@ for i in range(len_snake):
     new_turtle.penup()
     new_turtle.speed(10)
     turtle_object_list.append(new_turtle)
-    screen.tracer(0)
+
 
 #  set initial positions of turtle objects
 x = 0.0
@@ -43,8 +44,8 @@ while game_on:
         turtle_object_list[seg_num].goto(new_x_coord, new_y_coord)
 
     turtle_object_list[0].forward(20)
-    screen.onkey(key="Left", fun=turtle_object_list[0].right(90))
-    screen.onkey(key="Right", fun=turtle_object_list[0].left(90))
+    #screen.onkey(key="Left", fun=turtle_object_list[0].right(90))
+    #screen.onkey(key="Right", fun=turtle_object_list[0].left(90))
 
 
 screen.exitonclick()
