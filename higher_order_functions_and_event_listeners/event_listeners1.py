@@ -14,20 +14,17 @@ def turn_right():
 def turn_left():
     tim.left(5)
 
-def curve_right():
-    tim.left(5)
-    tim.forward(10)
 
 
 my_screen = Screen()
 my_screen.listen()
 
 
-my_screen.onkeypress(key="Down", fun=turn_right) and my_screen.onkeypress(key="Right", fun=turn_right)
-my_screen.onkeypress(key="Right", fun=move_forward)
-my_screen.onkeypress(key="Left", fun=move_backward)
-my_screen.onkeypress(key="Up", fun=turn_left)
-my_screen.onkeypress(key="Down", fun=turn_right)
+my_screen.onkey(key="Down", fun=turn_right)
+my_screen.onkey(key="Right", fun=move_forward)
+my_screen.onkey(key="Left", fun=move_backward)
+my_screen.onkey(key="Up", fun=turn_left)
+my_screen.onkey(key="Down", fun=turn_right)
 my_screen.onkey(key="c", fun=tim.reset)
 
 
