@@ -41,3 +41,15 @@ class Snake:
             self.turtle_object_list[seg_num].goto(new_x_coord, new_y_coord)
 
         self.turtle_object_list[0].forward(MOVE_DISTANCE)
+
+    def up(self):
+        self.turtle_object_list[0].setheading(90)
+
+    def down(self):
+        self.turtle_object_list[0].setheading(270)
+
+    def left(self):
+        self.turtle_object_list[0].setheading(180)
+
+    def right(self):
+        self.turtle_object_list[0].setheading(0)
