@@ -15,7 +15,7 @@ screen.tracer(0)
 game_on = True
 
 #  create snake object
-snake = Snake(length=3)
+snake = Snake(length=30)
 
 screen.listen()
 screen.onkey(key="Up", fun=snake.up)
