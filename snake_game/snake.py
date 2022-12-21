@@ -45,6 +45,12 @@ class Snake:
 
     def increase_length(self):
         self.length = self.length + 1
+        new_turtle = Turtle()
+        new_turtle.shape("square")
+        new_turtle.color("white")
+        new_turtle.penup()
+        new_turtle.speed(10)
+        self.turtle_object_list.append(new_turtle)
 
     def up(self):
         if not self.head.heading() == 270:

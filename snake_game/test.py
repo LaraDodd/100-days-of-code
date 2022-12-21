@@ -1,7 +1,7 @@
-from turtle import Screen, Turtle
+from turtle import Screen, Turtle, Screen
 import time
 from snake import Snake
-
+'''
 #  set up screen
 screen = Screen()
 screen.bgcolor("Black")
@@ -26,7 +26,14 @@ while game_on:
 
 screen.exitonclick()
 
-"""
-
+'''
+screen = Screen()
 tim = Turtle()
 print(tim.pos())
+tim.write("arg", move=False, align='left', font=('Arial', 8, 'normal'))
+
+
+
+
+
+screen.exitonclick()
