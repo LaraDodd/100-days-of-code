@@ -24,3 +24,8 @@ class Food(Turtle):
         self.x_pos = random.randint(-275, 275)
         self.y_pos = random.randint(-275, 275)
         self.goto(self.x_pos, self.y_pos)
+
+    def reset(self):
+        self.clear()
+        self.create_food()
+        self.generate_rand_pos()

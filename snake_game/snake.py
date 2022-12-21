@@ -9,9 +9,9 @@ class Snake:
 
     #  creates initial instance of snake object, initialising a segment object list, a length attribute to be
     # input by the user, running the create snake method and running the initialise positions method
-    def __init__(self, length):
+    def __init__(self):
         self.turtle_object_list = []
-        self.length = length
+        self.length = 3
         self.create_snake()
         self.head = self.turtle_object_list[0]
         self.initialise_positions()
@@ -42,6 +42,9 @@ class Snake:
             self.turtle_object_list[seg_num].goto(new_x_coord, new_y_coord)
 
         self.head.forward(MOVE_DISTANCE)
+
+    def increase_length(self):
+        self.length = self.length + 1
 
     def up(self):
         if not self.head.heading() == 270:

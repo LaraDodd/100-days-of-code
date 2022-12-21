@@ -11,15 +11,14 @@ screen.title("Snakety Snake Game")
 screen.listen()
 screen.tracer(0)
 
-
 #  initialise starting variables
 game_on = True
 
-#  create snake object
-snake = Snake(length=3)
 
-#  create food object
+#  create snake and object
+snake = Snake()
 food = Food()
+score = 0
 
 screen.listen()
 screen.onkey(key="Up", fun=snake.up)
@@ -27,15 +26,17 @@ screen.onkey(key="Down", fun=snake.down)
 screen.onkey(key="Left", fun=snake.left)
 screen.onkey(key="Right", fun=snake.right)
 
-
-
 #  main code
 while game_on:
     screen.update()  # updates animation after all segments have moved one step
     time.sleep(.1)  # slows animation down by putting time delay after update
 
     snake.move()
-    if snake.head.distance(food.x_pos, food.y_pos) <20:
+
+    #  food detection
+    if snake.head.distance(food.x_pos, food.y_pos) < 20:
+        score += 1
         print("eats food")
+        food.reset()
 
 screen.exitonclick()
