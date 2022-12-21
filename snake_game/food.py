@@ -10,16 +10,17 @@ class Food(Turtle):
 
     def __init__(self):
         super().__init__()
-        self.create_food()
-        self.y_pos = None
         self.x_pos = None
+        self.y_pos = None
+        self.create_food()
         self.generate_rand_pos()
 
     def create_food(self):
-        new_food = Turtle()
-        new_food.shape("circle")
-        new_food.color("blue")
+        self.shape("circle")
+        self.color("blue")
+        self.penup()
 
     def generate_rand_pos(self):
-        self.x_pos = random.randint(0, 600)
-        self.y_pos = random.randint(0, 600)
+        self.x_pos = random.randint(-275, 275)
+        self.y_pos = random.randint(-275, 275)
+        self.goto(self.x_pos, self.y_pos)

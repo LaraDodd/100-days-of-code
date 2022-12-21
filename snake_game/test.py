@@ -1,4 +1,4 @@
-from turtle import Screen
+from turtle import Screen, Turtle
 import time
 from snake import Snake
 
@@ -25,3 +25,8 @@ while game_on:
 
 
 screen.exitonclick()
+
+"""
+
+tim = Turtle()
+print(tim.pos())

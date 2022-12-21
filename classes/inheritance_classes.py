@@ -27,15 +27,16 @@ nemo.breathe()
 class Bird(LivingOrganism):
     def __init__(self):
         super().__init__()
+        self.num_eyes = 3
 
     def squark(self):
         print("CA CAHHH!!!")
 
     # can also add to existing methods in the super class
-    def move(self):
-        super().move()
+    def movement(self):
+        self.move()
         print("I can fly!")
 
 
 robbie_robin = Bird()
-robbie_robin.move()
+robbie_robin.movement()
