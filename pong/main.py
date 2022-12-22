@@ -1,4 +1,4 @@
-from turtle import Screen, Turtle
+from turtle import Screen
 from line import Line
 from user_racket import Racket
 from computer_racket import Comp
@@ -21,8 +21,6 @@ screen.tracer(0)
 
 #create classes
 dashed_line = Line()
-screen.update()
-
 racket = Racket()
 comp = Comp()
 
