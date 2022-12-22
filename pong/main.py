@@ -2,6 +2,7 @@ from turtle import Screen
 from line import Line
 from user_racket import Racket
 from computer_racket import Comp
+from ball import Ball
 
 
 #global constants
@@ -23,6 +24,7 @@ screen.tracer(0)
 dashed_line = Line()
 racket = Racket()
 comp = Comp()
+ball = Ball()
 
 
 #  set listen keys for screen
@@ -33,7 +35,17 @@ screen.onkey(key="Down", fun=racket.move_down)
 #main code
 while game_on:
     screen.update()
+
+    #  move the computer racket up and down
     comp.move()
+
+    #  move the ball constantly
+    ball.move()
+
+    #  detect collision with wall
+    if ball.distance(racket) < 20:
+        ball.rebound()
+
 
 
 screen.exitonclick()
