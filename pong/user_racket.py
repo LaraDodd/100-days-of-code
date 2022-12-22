@@ -3,7 +3,7 @@ from turtle import Turtle
 
 # global constants
 SCREEN_HEIGHT = 600
-SCREEN_WIDTH = 800
+SCREEN_WIDTH = 1000
 
 class Racket:
     def __init__(self):

@@ -8,7 +8,7 @@ from comp_score import CompScore
 
 # global constants
 SCREEN_HEIGHT = 600
-SCREEN_WIDTH = 800
+SCREEN_WIDTH = 1000
 
 # initial conditions
 game_on = True

@@ -2,7 +2,11 @@
 
 from turtle import Turtle
 
-NUMBER_OF_DASHES = 8
+# global constants
+SCREEN_HEIGHT = 600
+SCREEN_WIDTH = 1000
+NUMBER_OF_DASHES = 12
+
 
 class Line():
 
@@ -17,16 +21,11 @@ class Line():
             dash.shape("square")
             dash.color("white")
             dash.penup()
-            dash.shapesize(2, 0.5)
+            dash.shapesize(1, 0.25)
             self.dash_object_list.append(dash)
 
-
     def initialise_positions(self):
-        y_pos = 250
+        y_pos = (SCREEN_HEIGHT / 2) - 25
         for dash in self.dash_object_list:
-            dash.setpos(0,y_pos)
+            dash.setpos(0, y_pos)
             y_pos -= 70
-
-
-
-
