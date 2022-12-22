@@ -6,17 +6,18 @@ class Ball(Turtle):
     def __init__(self):
         super().__init__()
         self.create_ball()
-        self.initial_position()
+        self.start_position()
 
     def create_ball(self):
         self.shape("circle")
         self.color("gold")
         self.penup()
-        self.speed(5)
+        self.speed(1)
 
-    def initial_position(self):
+    def start_position(self):
         self.goto(0,-200)
         self.setheading(random.randint(0, 360))
+
 
     def move(self):
         self.forward(20)

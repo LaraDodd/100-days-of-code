@@ -60,14 +60,23 @@ while game_on:
     #  detect goal scored
     if ball.xcor() > SCREEN_WIDTH / 2:
         player_score.increase_score()
-        ball.reset()
+        ball.start_position()
 
     if ball.xcor() < -SCREEN_WIDTH / 2:
         comp_score.increase_score()
-        ball.reset()
+        ball.start_position()
 
     #game over:
-   # if comp.score
+    if comp_score.score >= 10:
+        comp_score.win()
+        game_on = False
+
+    if player_score.score >= 10:
+        player_score.win()
+        game_on = False
+
+
+
 
 
 screen.exitonclick()

@@ -2,7 +2,7 @@ from turtle import Turtle
 
 # global constants
 ALIGNMENT = 'center'
-SCORE_FONT = ('Courier', 25, 'normal')
+SCORE_FONT = ('Courier', 25, 'bold')
 GAME_OVER_FONT = ('Courier', 25, 'bold')
 
 
@@ -10,7 +10,7 @@ class CompScore(Turtle):
     def __init__(self):
         super().__init__()
         self.score = 0
-        self.goto(x=100, y=270)
+        self.goto(x=100, y=250)
         self.hideturtle()
         self.color("white")
         self.write(f"{self.score}", move=False, align=ALIGNMENT, font=SCORE_FONT)
@@ -20,7 +20,7 @@ class CompScore(Turtle):
         self.score += 1
         self.write(f"{self.score}", move=False, align=ALIGNMENT, font=SCORE_FONT)
 
-    def game_over(self):
+    def win(self):
         self.color("gold")
         self.goto(x=0, y=0)
-        self.write(f"GAME OVER", move=False, align=ALIGNMENT, font=GAME_OVER_FONT)
+        self.write(f"COMPUTER WINS :(", move=False, align=ALIGNMENT, font=GAME_OVER_FONT)
