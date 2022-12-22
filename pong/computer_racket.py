@@ -16,7 +16,7 @@ class Comp:
             new_turtle.shape("square")
             new_turtle.color("white")
             new_turtle.penup()
-            new_turtle.speed(10)
+            new_turtle.speed(3)
             self.turtle_object_list.append(new_turtle)
 
     def initialise_positions(self):
@@ -36,17 +36,22 @@ class Comp:
     def move_up(self):
         self.up()
         for segment in self.turtle_object_list:
-            segment.forward(40)
+            segment.forward(10)
 
     def move_down(self):
         self.down()
         for segment in self.turtle_object_list:
-            segment.forward(40)
+            segment.forward(10)
 
     def move(self):
-        while self.turtle_object_list[1].ycor() < 280 and self.turtle_object_list[1].heading() == 90:
+        if self.turtle_object_list[1].ycor() < 280 and self.turtle_object_list[1].heading() == 90:
             self.move_up()
-        while self.turtle_object_list[1].ycor() > -280 and self.turtle_object_list[1].heading() == 270:
+        else:
+            self.down()
+
+        if self.turtle_object_list[1].ycor() > -280 and self.turtle_object_list[1].heading() == 270:
             self.move_down()
+        else:
+            self.up()
 
 

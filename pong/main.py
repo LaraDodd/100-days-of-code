@@ -2,6 +2,7 @@ from turtle import Screen, Turtle
 from line import Line
 from user_racket import Racket
 from computer_racket import Comp
+import time
 
 #global constants
 SCREEN_HEIGHT = 600
@@ -16,11 +17,11 @@ screen.bgcolor("Black")
 screen.setup(height=SCREEN_HEIGHT, width=SCREEN_WIDTH)
 screen.title("PING PONG Game")
 screen.listen()
-#screen.tracer(0)
+screen.tracer(0)
 
 #create classes
 dashed_line = Line()
-#screen.update()
+screen.update()
 
 racket = Racket()
 comp = Comp()
@@ -33,8 +34,9 @@ screen.onkey(key="Down", fun=racket.move_down)
 
 #main code
 while game_on:
+    screen.update()
     comp.move()
-    #screen.update()
+
 
 screen.exitonclick()
 
