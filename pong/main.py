@@ -3,6 +3,8 @@ from line import Line
 from user_racket import Racket
 from computer_racket import Comp
 from ball import Ball
+from player_score import PlayerScore
+from comp_score import CompScore
 
 # global constants
 SCREEN_HEIGHT = 600
@@ -24,6 +26,8 @@ dashed_line = Line()
 racket = Racket()
 comp = Comp()
 ball = Ball()
+player_score = PlayerScore()
+comp_score = CompScore()
 
 #  set listen keys for screen
 screen.listen()
@@ -53,9 +57,18 @@ while game_on:
         if ball.distance(segment) < 20:
             ball.rebound()
 
-    # #  detect goal scored
-    #     if ball.ycor() > SCREEN_HEIGHT / 2 or ball.ycor() < -SCREEN_HEIGHT / 2:
-    #         ball.rebound()
+    #  detect goal scored
+    if ball.xcor() > SCREEN_WIDTH / 2:
+        player_score.increase_score()
+        ball.reset()
+
+    if ball.xcor() < -SCREEN_WIDTH / 2:
+        comp_score.increase_score()
+        ball.reset()
+
+    #game over:
+   # if comp.score
+
 
 screen.exitonclick()
 
