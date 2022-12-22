@@ -9,8 +9,8 @@ class Ball(Turtle):
         self.initial_position()
 
     def create_ball(self):
-        self.shape("square")
-        self.color("white")
+        self.shape("circle")
+        self.color("gold")
         self.penup()
         self.speed(10)
 
