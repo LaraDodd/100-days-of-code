@@ -66,7 +66,7 @@ while game_on:
         comp_score.increase_score()
         ball.start_position()
 
-    #game over:
+    # game over:
     if comp_score.score >= 10:
         comp_score.win()
         game_on = False
@@ -74,10 +74,6 @@ while game_on:
     if player_score.score >= 10:
         player_score.win()
         game_on = False
-
-
-
-
 
 screen.exitonclick()
 

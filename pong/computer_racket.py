@@ -3,6 +3,9 @@
 from turtle import Turtle
 import time
 
+# global constants
+SCREEN_HEIGHT = 600
+SCREEN_WIDTH = 800
 
 class Comp:
     def __init__(self):
@@ -23,7 +26,7 @@ class Comp:
     def initialise_positions(self):
         y_pos = 20
         for segment in self.turtle_object_list:
-            segment.setpos(380, y_pos)
+            segment.setpos((SCREEN_WIDTH/2)-20, y_pos)
             y_pos -= 20.0
 
     def up(self):

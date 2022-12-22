@@ -1,6 +1,9 @@
 """this module contains all information regarding the user racket"""
 from turtle import Turtle
 
+# global constants
+SCREEN_HEIGHT = 600
+SCREEN_WIDTH = 800
 
 class Racket:
     def __init__(self):
@@ -21,7 +24,7 @@ class Racket:
     def initialise_positions(self):
         y_pos = 20
         for segment in self.turtle_object_list:
-            segment.setpos(-380, y_pos)
+            segment.setpos(-(SCREEN_WIDTH/2)+20, y_pos)
             y_pos -= 20.0
 
     def up(self):
