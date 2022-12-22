@@ -11,7 +11,7 @@ class Snake:
         """creates initial instance of snake object, initialising a turtle object list, a length attribute
              running the create snake method and running the initialise positions method"""
         self.turtle_object_list = []
-        self.length = 10
+        self.length = 3
         self.create_snake()
         self.head = self.turtle_object_list[0]
         self.initialise_positions()
@@ -51,6 +51,9 @@ class Snake:
         new_turtle.color("white")
         new_turtle.penup()
         new_turtle.speed("fastest")
+        #new_turtle.goto(-250,-250)
+        #  set position of when segment comes in
+        new_turtle.goto(self.turtle_object_list[-1].pos())
         self.turtle_object_list.append(new_turtle)
 
     def up(self):

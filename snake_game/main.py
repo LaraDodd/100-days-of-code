@@ -36,7 +36,7 @@ while game_on:
 
     #  food detection
     if snake.head.distance(food.x_pos, food.y_pos) < 20:  # don't have to put x&y coords, object 'food' would suffice
-        score.add()
+        score.increase_score()
         food.reset()
         snake.increase_length()
 
@@ -46,8 +46,8 @@ while game_on:
         score.game_over()
 
     #  colliding with tail interaction
-    for i in range(1, len(snake.turtle_object_list) - 1):
-        if snake.turtle_object_list[i].distance(snake.head) < 10:
+    for segment in snake.turtle_object_list[1:]:  # cycles through all segments except snake head
+        if segment.distance(snake.head) < 10:
             game_on = False
             score.game_over()
 
