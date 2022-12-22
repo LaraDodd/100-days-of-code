@@ -21,7 +21,7 @@ class Racket():
     def initialise_positions(self):
         y_pos = 20
         for segment in self.turtle_object_list:
-            segment.setpos(-280, y_pos)
+            segment.setpos(-380, y_pos)
             y_pos -= 20.0
 
     def up(self):
@@ -35,10 +35,10 @@ class Racket():
     def move_up(self):
         self.up()
         for segment in self.turtle_object_list:
-            segment.forward(20)
+            segment.forward(50)
 
     def move_down(self):
         self.down()
         for segment in self.turtle_object_list:
-            segment.forward(20)
+            segment.forward(50)
 

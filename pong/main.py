@@ -6,6 +6,9 @@ from user_racket import Racket
 SCREEN_HEIGHT = 600
 SCREEN_WIDTH = 800
 
+#initial conditions
+game_on = True
+
 #set up screen
 screen = Screen()
 screen.bgcolor("Black")
@@ -14,18 +17,20 @@ screen.title("PING PONG Game")
 screen.listen()
 screen.tracer(0)
 
-
 #create classes
 dashed_line = Line()
 screen.update()
 
 racket = Racket()
 
-
 #  set listen keys for screen
 screen.listen()
 screen.onkey(key="Up", fun=racket.move_up)
 screen.onkey(key="Down", fun=racket.move_down)
+
+#main code
+while game_on:
+    screen.update()
 
 screen.exitonclick()
 
