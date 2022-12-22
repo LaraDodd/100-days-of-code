@@ -1,17 +1,24 @@
 from turtle import Screen, Turtle
 from line import Line
 
+#global constants
+SCREEN_HEIGHT = 600
+SCREEN_WIDTH = 800
 
 #set up screen
 screen = Screen()
 screen.bgcolor("Black")
-screen.setup(height=600, width=800)
+screen.setup(height=SCREEN_HEIGHT, width=SCREEN_WIDTH)
 screen.title("PING PONG Game")
 screen.listen()
 screen.tracer(0)
 
+
+
+
 #create classes
 dashed_line = Line()
+screen.update()
 
 
 

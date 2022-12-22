@@ -4,21 +4,29 @@ from turtle import Turtle
 
 NUMBER_OF_DASHES = 8
 
-class Line(Turtle):
+class Line():
 
     def __init__(self):
-        super().__init__()
-        self.create_line()
+        self.dash_object_list = []
+        self.create_dash()
+        self.initialise_positions()
 
-
-    def create_line(self):
-        x = 250
+    def create_dash(self):
         for i in range(NUMBER_OF_DASHES):
-            self.shape("turtle")
-            self.color("white")
-            self.goto(0, x)
-            #self.stretch()
-            X -= 50
+            dash = Turtle()
+            dash.shape("square")
+            dash.color("white")
+            dash.penup()
+            dash.shapesize(2, 0.5)
+            self.dash_object_list.append(dash)
+
+
+    def initialise_positions(self):
+        y_pos = 250
+        for dash in self.dash_object_list:
+            dash.setpos(0,y_pos)
+            y_pos -= 70
+
 
 
 
