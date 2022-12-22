@@ -1,8 +1,9 @@
-"""this module contains all information regarding the user racket"""
+"""this program contains all information to do with the computer racket"""
+
 from turtle import Turtle
 
 
-class Racket:
+class Comp:
     def __init__(self):
         self.turtle_object_list = []
         self.length = 3
@@ -21,7 +22,7 @@ class Racket:
     def initialise_positions(self):
         y_pos = 20
         for segment in self.turtle_object_list:
-            segment.setpos(-380, y_pos)
+            segment.setpos(380, y_pos)
             y_pos -= 20.0
 
     def up(self):
@@ -35,10 +36,17 @@ class Racket:
     def move_up(self):
         self.up()
         for segment in self.turtle_object_list:
-            segment.forward(50)
+            segment.forward(40)
 
     def move_down(self):
         self.down()
         for segment in self.turtle_object_list:
-            segment.forward(50)
+            segment.forward(40)
+
+    def move(self):
+        while self.turtle_object_list[1].ycor() < 280 and self.turtle_object_list[1].heading() == 90:
+            self.move_up()
+        while self.turtle_object_list[1].ycor() > -280 and self.turtle_object_list[1].heading() == 270:
+            self.move_down()
+
 
