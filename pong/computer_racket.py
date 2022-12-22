@@ -45,7 +45,7 @@ class Comp:
             segment.forward(10)
 
     def move(self):
-        time.sleep(.05)
+        time.sleep(.025)
         if self.turtle_object_list[1].ycor() < 270 and self.turtle_object_list[1].heading() == 90:
             self.move_up()
         else:

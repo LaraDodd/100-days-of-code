@@ -12,7 +12,7 @@ class Ball(Turtle):
         self.shape("circle")
         self.color("gold")
         self.penup()
-        self.speed(10)
+        self.speed(5)
 
     def initial_position(self):
         self.goto(0,-200)
@@ -22,7 +22,7 @@ class Ball(Turtle):
         self.forward(20)
 
     def rebound(self):
-        new_heading = self.heading()+90
+        new_heading = self.heading()+random.randint(80,100)
         if new_heading > 360:
             new_heading -= 360
         self.setheading(new_heading)

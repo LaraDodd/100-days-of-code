@@ -49,6 +49,10 @@ while game_on:
         if ball.distance(segment) < 20:
             ball.rebound()
 
+    for segment in comp.turtle_object_list:
+        if ball.distance(segment) < 20:
+            ball.rebound()
+
     # #  detect goal scored
     #     if ball.ycor() > SCREEN_HEIGHT / 2 or ball.ycor() < -SCREEN_HEIGHT / 2:
     #         ball.rebound()
