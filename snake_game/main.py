@@ -15,12 +15,12 @@ screen.tracer(0)
 #  initialise starting variables
 game_on = True
 
-
-#  create snake and object
+#  create snake, food and scoreboard instances
 snake = Snake()
 food = Food()
 score = Scoreboard()
 
+#  set listen keys for screen
 screen.listen()
 screen.onkey(key="Up", fun=snake.up)
 screen.onkey(key="Down", fun=snake.down)
@@ -32,10 +32,10 @@ while game_on:
     screen.update()  # updates animation after all segments have moved one step
     time.sleep(.1)  # slows animation down by putting time delay after update
 
-    snake.move()
+    snake.move()  # snake moves forward continuously
 
     #  food detection
-    if snake.head.distance(food.x_pos, food.y_pos) < 20:
+    if snake.head.distance(food.x_pos, food.y_pos) < 20:  # don't have to put x&y coords, object 'food' would suffice
         score.add()
         food.reset()
         snake.increase_length()
@@ -46,7 +46,7 @@ while game_on:
         score.game_over()
 
     #  colliding with tail interaction
-    for i in range(1, len(snake.turtle_object_list)-1):
+    for i in range(1, len(snake.turtle_object_list) - 1):
         if snake.turtle_object_list[i].distance(snake.head) < 10:
             game_on = False
             score.game_over()

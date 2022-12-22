@@ -7,11 +7,11 @@ MOVE_DISTANCE = 20
 
 class Snake:
 
-    #  creates initial instance of snake object, initialising a segment object list, a length attribute to be
-    # input by the user, running the create snake method and running the initialise positions method
     def __init__(self):
+        """creates initial instance of snake object, initialising a turtle object list, a length attribute
+             running the create snake method and running the initialise positions method"""
         self.turtle_object_list = []
-        self.length = 3
+        self.length = 10
         self.create_snake()
         self.head = self.turtle_object_list[0]
         self.initialise_positions()
@@ -44,12 +44,13 @@ class Snake:
         self.head.forward(MOVE_DISTANCE)
 
     def increase_length(self):
+        """adds a segment (which is a turtle object) on to the snake, appends this to the turtle object list"""
         self.length = self.length + 1
         new_turtle = Turtle()
         new_turtle.shape("square")
         new_turtle.color("white")
         new_turtle.penup()
-        new_turtle.speed(10)
+        new_turtle.speed("fastest")
         self.turtle_object_list.append(new_turtle)
 
     def up(self):
