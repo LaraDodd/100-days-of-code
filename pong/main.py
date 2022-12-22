@@ -2,7 +2,7 @@ from turtle import Screen, Turtle
 from line import Line
 from user_racket import Racket
 from computer_racket import Comp
-import time
+
 
 #global constants
 SCREEN_HEIGHT = 600

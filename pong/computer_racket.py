@@ -1,6 +1,7 @@
 """this program contains all information to do with the computer racket"""
 
 from turtle import Turtle
+import time
 
 
 class Comp:
@@ -44,12 +45,13 @@ class Comp:
             segment.forward(10)
 
     def move(self):
-        if self.turtle_object_list[1].ycor() < 280 and self.turtle_object_list[1].heading() == 90:
+        time.sleep(.05)
+        if self.turtle_object_list[1].ycor() < 270 and self.turtle_object_list[1].heading() == 90:
             self.move_up()
         else:
             self.down()
 
-        if self.turtle_object_list[1].ycor() > -280 and self.turtle_object_list[1].heading() == 270:
+        if self.turtle_object_list[1].ycor() > -270 and self.turtle_object_list[1].heading() == 270:
             self.move_down()
         else:
             self.up()
