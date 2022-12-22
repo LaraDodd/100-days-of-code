@@ -3,7 +3,7 @@ from turtle import Turtle
 # global constants
 ALIGNMENT = 'center'
 SCORE_FONT = ('Courier', 15, 'normal')
-GAME_OVER_FONT = ('Courier', 15, 'normal')
+GAME_OVER_FONT = ('Courier', 25, 'bold')
 
 
 class Scoreboard(Turtle):
@@ -22,5 +22,6 @@ class Scoreboard(Turtle):
         self.write(f"Score: {self.score}", move=False, align=ALIGNMENT, font=SCORE_FONT)
 
     def game_over(self):
+        self.color("gold")
         self.goto(x=0, y=0)
         self.write(f"GAME OVER", move=False, align=ALIGNMENT, font=GAME_OVER_FONT)
