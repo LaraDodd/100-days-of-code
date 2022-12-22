@@ -36,10 +36,19 @@ while game_on:
 
     #  food detection
     if snake.head.distance(food.x_pos, food.y_pos) < 20:
-
-        print("eats food")
         score.add()
         food.reset()
         snake.increase_length()
+
+    #  wall detection
+    if snake.head.xcor() > 290 or snake.head.xcor() < -290 or snake.head.ycor() > 290 or snake.head.ycor() < -290:
+        game_on = False
+        score.game_over()
+
+    #  colliding with tail interaction
+    for i in range(1, len(snake.turtle_object_list)-1):
+        if snake.turtle_object_list[i].distance(snake.head) < 10:
+            game_on = False
+            score.game_over()
 
 screen.exitonclick()

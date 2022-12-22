@@ -17,4 +17,8 @@ class Scoreboard(Turtle):
         #  have to call self.write again otherwise it won't re-wrtie the score
         self.write(f"Score: {self.score}", move=False, align='center', font=('Arial', 20, 'normal'))
 
+    def game_over(self):
+        self.goto(x=0, y=0)
+        self.write(f"GAME OVER", move=False, align='center', font=('Arial', 24, 'normal'))
+
 

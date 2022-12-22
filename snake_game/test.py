@@ -32,6 +32,9 @@ tim = Turtle()
 print(tim.pos())
 tim.write("arg", move=False, align='left', font=('Arial', 8, 'normal'))
 
+for i in range(1,7):
+    print(i)
+
 
 
 
