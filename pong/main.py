@@ -1,5 +1,6 @@
 from turtle import Screen, Turtle
 from line import Line
+from user_racket import Racket
 
 #global constants
 SCREEN_HEIGHT = 600
@@ -14,13 +15,17 @@ screen.listen()
 screen.tracer(0)
 
 
-
-
 #create classes
 dashed_line = Line()
 screen.update()
 
+racket = Racket()
 
+
+#  set listen keys for screen
+screen.listen()
+screen.onkey(key="Up", fun=racket.move_up)
+screen.onkey(key="Down", fun=racket.move_down)
 
 screen.exitonclick()
 

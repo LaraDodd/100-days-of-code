@@ -51,7 +51,6 @@ class Snake:
         new_turtle.color("white")
         new_turtle.penup()
         new_turtle.speed("fastest")
-        #new_turtle.goto(-250,-250)
         #  set position of when segment comes in
         new_turtle.goto(self.turtle_object_list[-1].pos())
         self.turtle_object_list.append(new_turtle)
