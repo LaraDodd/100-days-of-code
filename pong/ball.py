@@ -10,14 +10,20 @@ class Ball(Turtle):
         self.start_position()
 
     def create_ball(self):
-        self.shape("circle")
-        self.color("gold")
+        self.shape("square")
+        self.color("white")
         self.penup()
         self.speed(1)
 
     def start_position(self):
         self.goto(0,0)
-        self.setheading(random.randint(0, 360))
+        if random.randint(0,1) == 0:
+            rand_heading = random.randint(135,225)
+        else:
+            rand_heading = random.randint(-45,45)
+            if rand_heading < 0:
+                rand_heading -= 360
+        self.setheading(rand_heading)
 
 
     def move(self):

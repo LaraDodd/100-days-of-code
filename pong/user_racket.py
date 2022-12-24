@@ -8,7 +8,7 @@ SCREEN_WIDTH = 1000
 class Racket:
     def __init__(self):
         self.turtle_object_list = []
-        self.length = 3
+        self.length = 5
         self.create_racket()
         self.initialise_positions()
 
@@ -38,10 +38,10 @@ class Racket:
     def move_up(self):
         self.up()
         for segment in self.turtle_object_list:
-            segment.forward(50)
+            segment.forward(60)
 
     def move_down(self):
         self.down()
         for segment in self.turtle_object_list:
-            segment.forward(50)
+            segment.forward(60)
 

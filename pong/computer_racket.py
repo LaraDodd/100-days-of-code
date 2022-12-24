@@ -10,7 +10,7 @@ SCREEN_WIDTH = 1000
 class Comp:
     def __init__(self):
         self.turtle_object_list = []
-        self.length = 3
+        self.length = 5
         self.create_racket()
         self.initialise_positions()
 
