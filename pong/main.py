@@ -18,7 +18,6 @@ screen = Screen()
 screen.bgcolor("Black")
 screen.setup(height=SCREEN_HEIGHT, width=SCREEN_WIDTH)
 screen.title("PING PONG Game")
-screen.listen()
 screen.tracer(0)
 
 # create classes
