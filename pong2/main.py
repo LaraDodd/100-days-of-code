@@ -1,4 +1,5 @@
-from turtle import Turtle, Screen
+from turtle import Screen
+from paddle import Paddle
 
 # global constants
 SCREEN_HEIGHT = 600
@@ -15,29 +16,16 @@ screen.title("PING PONG Game")
 screen.listen()
 screen.tracer(0)
 
-# create paddle
-paddle = Turtle()
-paddle.color("white")
-paddle.penup()
-paddle.shape("square")
-paddle.goto((SCREEN_WIDTH / 2) - 20, 0)
-paddle.shapesize(5, 1)  # instead of connecting 3 turtles together, just stretch one turtle
-
-
-# functions
-def move_up():  # instead of moving by changing head and moving foward, move the position!!
-    new_y = paddle.ycor() + 20
-    paddle.goto(paddle.xcor(), new_y)
-
-
-def move_down():  # instead of moving by changing head and moving foward, move the position!!
-    new_y = paddle.ycor() - 20
-    paddle.goto(paddle.xcor(), new_y)
-
+#create classes
+r_paddle = Paddle(350, 0)
+l_paddle = Paddle(-350, 0)
 
 # event listeners
-screen.onkey(key="Up", fun=move_up)
-screen.onkey(key="Down", fun=move_down)
+screen.onkey(key="Up", fun=r_paddle.move_up)
+screen.onkey(key="Down", fun=r_paddle.move_down)
+screen.onkey(key="w", fun=l_paddle.move_up)
+screen.onkey(key="s", fun=l_paddle.move_down)
+
 
 
 #  main code
