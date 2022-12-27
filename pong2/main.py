@@ -4,6 +4,9 @@ from turtle import Turtle, Screen
 SCREEN_HEIGHT = 600
 SCREEN_WIDTH = 800
 
+#  set initial variables
+game_is_on = True
+
 # first create screen
 screen = Screen()
 screen.bgcolor("Black")
@@ -22,21 +25,25 @@ paddle.shapesize(5, 1)  # instead of connecting 3 turtles together, just stretch
 
 
 # functions
-def move_up(turtle_object):  # instead of moving by changing head and moving foward, move the position!!
-    new_y = turtle_object.ycor() + 20
-    turtle_object.goto(turtle_object.xcor(), new_y)
+def move_up():  # instead of moving by changing head and moving foward, move the position!!
+    new_y = paddle.ycor() + 20
+    paddle.goto(paddle.xcor(), new_y)
 
 
-def move_down(turtle_object):  # instead of moving by changing head and moving foward, move the position!!
-    new_y = turtle_object.ycor() - 20
-    turtle_object.goto(turtle_object.xcor(), new_y)
+def move_down():  # instead of moving by changing head and moving foward, move the position!!
+    new_y = paddle.ycor() - 20
+    paddle.goto(paddle.xcor(), new_y)
 
 
 # event listeners
-screen.onkey(key="Up", fun=move_up(paddle))
-screen.onkey(key="Down", fun=move_down(paddle))
+screen.onkey(key="Up", fun=move_up)
+screen.onkey(key="Down", fun=move_down)
 
-screen.update()
 
-screen.update()
+#  main code
+while game_is_on:
+    screen.update()
+
+
+
 screen.exitonclick()
