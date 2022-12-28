@@ -3,6 +3,7 @@ from paddle import Paddle
 from ball import Ball
 import time
 from line import Line
+from scoreboard import Scoreboard
 
 # global constants
 SCREEN_HEIGHT = 600
@@ -24,6 +25,7 @@ r_paddle = Paddle(370, 0)
 l_paddle = Paddle(-370, 0)
 ball = Ball()
 line = Line()
+scoreboard = Scoreboard()
 
 
 # event listeners
