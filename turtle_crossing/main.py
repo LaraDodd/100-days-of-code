@@ -25,5 +25,18 @@ while game_is_on:
     screen.update()
     cars.move()
 
+    # detect collision
+    for car in cars.cars_list:
+        if car.distance(player) < 15:
+            score.game_over()
+            screen.update()
+            game_is_on = False
+
+    # detect finish line
+    if player.ycor() > 280:
+        player.restart_pos()
+        score.increase_score()
+        cars.increase_speed()
+        cars.increase_cars_and_reset()
 
 screen.exitonclick()
