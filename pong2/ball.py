@@ -29,3 +29,5 @@ class Ball(Turtle):
     def refresh_pos(self):
         self.goto(0, 0)
 
+
+
