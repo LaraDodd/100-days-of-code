@@ -1,5 +1,7 @@
 from turtle import Screen
 from paddle import Paddle
+from ball import Ball
+import time
 
 # global constants
 SCREEN_HEIGHT = 600
@@ -19,6 +21,7 @@ screen.tracer(0)
 #create classes
 r_paddle = Paddle(350, 0)
 l_paddle = Paddle(-350, 0)
+ball = Ball()
 
 # event listeners
 screen.onkey(key="Up", fun=r_paddle.move_up)
@@ -30,7 +33,9 @@ screen.onkey(key="s", fun=l_paddle.move_down)
 
 #  main code
 while game_is_on:
+    time.sleep(.1)
     screen.update()
+    ball.move()
 
 
 
