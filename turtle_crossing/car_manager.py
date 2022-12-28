@@ -5,6 +5,7 @@ COLORS = ["red", "orange", "yellow", "green", "blue", "purple", "gold"]
 STARTING_MOVE_DISTANCE = 5
 MOVE_INCREMENT = 10
 
+
 class CarManager():
     def __init__(self):
         self.no_cars = 6
@@ -33,9 +34,7 @@ class CarManager():
         for car in self.cars_list:
             random_int = random.randint(0, 1)
             if random_int == 0:
-                car.goto(car.xcor() + self.move_distance, car.ycor())
+                car.goto(car.xcor() - self.move_distance, car.ycor())
 
     def increase_speed(self):
         self.move_distance += MOVE_INCREMENT
-
-
