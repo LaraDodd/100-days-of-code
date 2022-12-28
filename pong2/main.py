@@ -19,8 +19,8 @@ screen.listen()
 screen.tracer(0)
 
 #create classes
-r_paddle = Paddle(350, 0)
-l_paddle = Paddle(-350, 0)
+r_paddle = Paddle(370, 0)
+l_paddle = Paddle(-370, 0)
 ball = Ball()
 
 # event listeners
@@ -36,6 +36,14 @@ while game_is_on:
     time.sleep(.1)
     screen.update()
     ball.move()
+
+    #detect collision with wall
+    if ball.ycor() > (SCREEN_HEIGHT/2 - 20) or ball.ycor() < (-SCREEN_HEIGHT/2 + 20):
+        ball.bounce_y()
+
+    #detect collision with paddle
+    if ball.xcor() > 340 and ball.distance(r_paddle) < 50:
+        ball.bounce_x()
 
 
 
