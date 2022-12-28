@@ -21,7 +21,7 @@ class CarManager():
             new_car.color(random.choice(COLORS))
             new_car.penup()
             new_car.shapesize(0.5, 1)
-            new_car.goto(250, random.randint(-100, 250))
+            new_car.goto(300, random.randint(-100, 250))
             self.cars_list.append(new_car)
 
 
@@ -36,6 +36,7 @@ class CarManager():
         self.move_distance += MOVE_INCREMENT
 
     def increase_cars_and_reset(self):
+        self.no_cars += 1
         new_car = Turtle()
         new_car.shape("square")
         new_car.color(random.choice(COLORS))
