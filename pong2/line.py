@@ -8,7 +8,7 @@ SCREEN_WIDTH = 1000
 NUMBER_OF_DASHES = 15
 
 
-class Line():
+class Line:
 
     def __init__(self):
         self.dash_object_list = []
