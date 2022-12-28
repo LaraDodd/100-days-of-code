@@ -19,11 +19,18 @@ score = Scoreboard()
 screen.onkey(key="Up", fun=player.move_up)
 screen.onkey(key="Down", fun=player.move_down)
 
+counter = 0
 game_is_on = True
 while game_is_on:
     time.sleep(0.1)
     screen.update()
     cars.move()
+    counter += 1
+
+    if counter % 40 == 0:
+        cars.add_car_row()
+
+
 
     # detect collision
     for car in cars.cars_list:

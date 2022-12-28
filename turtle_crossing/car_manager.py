@@ -12,7 +12,7 @@ class CarManager():
         self.cars_list = []
         self.move_distance = STARTING_MOVE_DISTANCE
         self.create_cars()
-        self.initial_positions()
+
 
     def create_cars(self):
         for i in range(self.no_cars):
@@ -21,12 +21,9 @@ class CarManager():
             new_car.color(random.choice(COLORS))
             new_car.penup()
             new_car.shapesize(0.5, 1)
+            new_car.goto(250, random.randint(-100, 250))
             self.cars_list.append(new_car)
-        print(self.cars_list)
 
-    def initial_positions(self):
-        for car in self.cars_list:
-            car.goto(250, random.randint(-100, 250))
 
 
     def move(self):
@@ -44,5 +41,9 @@ class CarManager():
         new_car.color(random.choice(COLORS))
         new_car.penup()
         new_car.shapesize(0.5, 1)
+        new_car.goto(250, random.randint(-100, 250))
         self.cars_list.append(new_car)
-        self.initial_positions()
+
+    def add_car_row(self):
+        self.create_cars()
+
