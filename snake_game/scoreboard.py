@@ -14,12 +14,12 @@ class Scoreboard(Turtle):
         self.goto(x=0, y=270)
         self.hideturtle()
         self.color("white")
-        self.write(f"Score: {self.score}", move=False, align=ALIGNMENT, font=SCORE_FONT)
+        self.write(f"Score: {self.score} High Score {self.high_score}", move=False, align=ALIGNMENT, font=SCORE_FONT)
 
     def update_scoreboard(self):
         self.clear()
         #  have to call self.write again otherwise it won't re-wrtie the score
-        self.write(f"Score: {self.score} High ScoreL {self.high_score}", move=False, align=ALIGNMENT, font=SCORE_FONT)
+        self.write(f"Score: {self.score} High Score {self.high_score}", move=False, align=ALIGNMENT, font=SCORE_FONT)
 
     def increase_score(self):
         self.score += 1

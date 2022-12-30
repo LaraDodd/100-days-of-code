@@ -72,6 +72,8 @@ class Snake:
             self.head.setheading(0)
 
     def reset_snake(self):
+        for segment in self.turtle_object_list:
+            segment.goto(350, 350)
         self.turtle_object_list = []
         self.length = 3
         self.create_snake()
