@@ -16,6 +16,16 @@ class Scoreboard(Turtle):
         self.color("white")
         self.write(f"Score: {self.score} High Score {self.high_score}", move=False, align=ALIGNMENT, font=SCORE_FONT)
 
+    def find_high_score(self):
+        with open("score_data.txt", "r") as scores:
+            highscores = []
+            for line in scores:
+                highscores.append(line)
+            highscores = highscores[1:]  # slice first line off
+
+
+
+
     def update_scoreboard(self):
         self.clear()
         #  have to call self.write again otherwise it won't re-wrtie the score
@@ -32,6 +42,11 @@ class Scoreboard(Turtle):
             self.high_score = self.score
         self.score = 0
         self.update_scoreboard()
+
+    def write_to_score_data(self):
+        with open("score_data.txt", "a") as scores:
+            scores.write(self.highscore)
+
 
     def game_over(self):
         self.color("gold")

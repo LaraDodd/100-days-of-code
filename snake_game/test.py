@@ -27,7 +27,7 @@ while game_on:
 screen.exitonclick()
 
 '''
-screen = Screen()
+'''screen = Screen()
 tim = Turtle()
 print(tim.pos())
 tim.write("arg", move=False, align='left', font=('Arial', 8, 'normal'))
@@ -39,4 +39,12 @@ for i in range(1,7):
 
 
 
-screen.exitonclick()
+screen.exitonclick()'''
+
+with open("score_data.text", "r") as scores:
+    highscores = []
+    for line in scores:
+        highscores.append(line)
+    highscores = highscores[1:]  # slice first line off
+
+print(highscores)
