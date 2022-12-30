@@ -25,8 +25,9 @@ class Scoreboard(Turtle):
         self.score += 1
         self.update_scoreboard()
 
-
     def reset_score(self):
+        """checks if score is a high score and adds score to high score variable if it is
+        resets score to zero and updates scoreboard"""
         if self.score > self.high_score:
             self.high_score = self.score
         self.score = 0
