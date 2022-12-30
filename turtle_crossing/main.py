@@ -30,12 +30,12 @@ while game_is_on:
     cars.move()
     counter += 1
 
-    if counter % 40 == 0:  # every 4s a new row of cars will be generated
-        cars.add_car_row()
+    if counter % 35 == 0:  # every 3.5s a new row of cars will be generated
+        cars.create_car_row()
 
     # detect collision
     for car in cars.cars_list:
-        if car.distance(player) < 15:
+        if car.distance(player) < 20:
             score.game_over()
             screen.update()
             game_is_on = False
