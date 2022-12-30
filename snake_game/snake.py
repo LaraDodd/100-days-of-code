@@ -70,3 +70,10 @@ class Snake:
     def right(self):
         if not self.head.heading() == 180:
             self.head.setheading(0)
+
+    def reset_snake(self):
+        self.turtle_object_list = []
+        self.length = 3
+        self.create_snake()
+        self.head = self.turtle_object_list[0]
+        self.initialise_positions()
