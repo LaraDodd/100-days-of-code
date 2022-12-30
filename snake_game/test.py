@@ -41,10 +41,17 @@ for i in range(1,7):
 
 screen.exitonclick()'''
 
-with open("score_data.text", "r") as scores:
+with open("score_data", "r") as scores:
     highscores = []
     for line in scores:
         highscores.append(line)
-    highscores = highscores[1:]  # slice first line off
+
+highscores = highscores[1:]  # slice first line off
+print(highscores)
+
+# edits the list in place, otherwise you would have to go through every value in highscores
+# and strip it and then int() it and THEN append it to a new list
+formatted_highscores = [int(s.strip('\n')) for s in highscores]  # list comprehension
 
 print(highscores)
+print(formatted_highscores)
