@@ -23,9 +23,6 @@ states_df = pandas.read_csv("50_states.csv")
 # states as list
 states_to_guess = states_df.state.to_list()
 
-# initialise correct guesses list
-correct_guesses = []
-
 
 def create_turtle(x, y, name):
     new_turtle = Turtle()
@@ -38,11 +35,12 @@ def create_turtle(x, y, name):
 # create classes
 score = ScoreBoard()
 
-while len(states_to_guess) > 0:
+while score.guesses_left > 0:
 
     # create pop up window
     user_answer = screen.textinput("Guess", "Please guess a state: ")
 
+    # if guess is correct, get the x and y coords for that state using pd dataframe, create a turtle at that position
     if user_answer in states_to_guess:
         df_row = states_df[states_df.state == user_answer]
         x_cor = int(df_row.x)
@@ -50,13 +48,12 @@ while len(states_to_guess) > 0:
         create_turtle(x_cor, y_cor, user_answer)
 
         states_to_guess.remove(user_answer)
-        correct_guesses.append(user_answer)
 
+        score.decrease_guesses_left()
         score.increase_score()
 
         print(len(states_to_guess))
     else:
-        wrong = Turtle()
-        wrong.write("wrong guess", align="center", font=("Arial", 8, "normal"))
+        score.decrease_guesses_left()
 
 screen.exitonclick()
