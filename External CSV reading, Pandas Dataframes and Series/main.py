@@ -43,7 +43,7 @@ print(pd_data.condition)
 print(pd_data["condition"])
 
 # get row data
-print(pd_data[pd_data.condition == "Rain"])
+print(f'rows with rain: {pd_data[pd_data.condition == "Rain"]}')
 
 #print row of max temp
 print(pd_data[pd_data.temp == pd_data["temp"].max()])
