@@ -12,16 +12,13 @@ with open("./Input/Names/invited_names.txt") as names:
 
         # open starting letter and read all contents
         with open("./Input/Letters/starting_letter.txt", "r") as letter:
-            letter_contents = letter.readlines()
+            letter_contents = letter.read()
 
-            # use replace function to replace name section of string with actual na,e
-            letter_contents[0] = letter_contents[0].replace("[name]", f"{name}")
-
-            # join together list into a string with join func
-            str_letter_contents = ''.join(letter_contents)
+            # use replace function to replace name section of string with actual name
+            letter_contents = letter_contents.replace("[name]", f"{name}")
 
             # write to new letter text document, naming it with position
             with open(f"./Output/ReadyToSend/letter{pos}.txt", "w") as letter_to_send:
-                letter_to_send.write(str_letter_contents)
+                letter_to_send.write(letter_contents)
 
 
