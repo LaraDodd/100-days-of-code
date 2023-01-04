@@ -40,6 +40,10 @@ while score.guesses_left > 0:
     # create pop up window
     user_answer = screen.textinput("Guess", "Please guess a state: ")
 
+    #string checks
+    user_answer = user_answer.title()
+    user_answer = user_answer.strip()
+
     # if guess is correct, get the x and y coords for that state using pd dataframe, create a turtle at that position
     if user_answer in states_to_guess:
         df_row = states_df[states_df.state == user_answer]
@@ -49,11 +53,13 @@ while score.guesses_left > 0:
 
         states_to_guess.remove(user_answer)
 
+        # add to scoreboard class
         score.decrease_guesses_left()
         score.increase_score()
 
         print(len(states_to_guess))
     else:
         score.decrease_guesses_left()
+        score.wrong()
 
 screen.exitonclick()
