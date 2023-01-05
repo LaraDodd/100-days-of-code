@@ -7,7 +7,7 @@ class ScoreBoard(Turtle):
         self.score = 0
         self.highscore = None
         self.get_highscore()
-        self.guesses_left = 5
+        self.guesses_left = 6
         self.hideturtle()
         self.color("DarkSlateGray")
         self.goto(125, 250)
