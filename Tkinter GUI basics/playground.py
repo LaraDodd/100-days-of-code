@@ -15,17 +15,17 @@ window.config(padx=30, pady=30)
 
 # creating label component
 my_label = Label(text="I am a label", font=("times new roman", 20, "bold"))
-my_label.grid(column=0, row=0)  # have to give the components a position in order for them to appear on the window
+my_label.pack() # have to give the components a position in order for them to appear on the window
 my_label.config(padx=10, pady=10)
 
 # creating button component
 my_button = Button(text="Click me", command=button_clicked)  # give command when clicked
-my_button.grid(column=0, row=4)
+my_button.pack()
 my_button.config(padx=50, pady=50)
 
 # create entry box component
 input = Entry(width=20)
-input.grid(column=0, row=2)
+input.pack()
 
 
 # Text
@@ -36,66 +36,66 @@ text.focus()
 text.insert(END, "Example of multi-line text entry.")
 # Get's current value in textbox at line 1, character 0
 print(text.get("1.0", END))
-text.grid(column=0, row=6)
+text.pack()
 text.config(padx=10, pady=10)
 
 
-# # Spinbox
-# def spinbox_used(value):
-#     # gets the current value in spinbox.
-#     print(value)
-#
-# spinbox = Spinbox(from_=0, to=10, width=5, command=spinbox_used)
-# spinbox.pack()
-#
+# Spinbox
+def spinbox_used(value):
+    # gets the current value in spinbox.
+    print(value)
 
-# Scale
-# Called with current scale value.
-# def scale_used():
-#     print(scale.get())
-#
-#
-# scale = Scale(from_=0, to=100, command=scale_used)
-# scale.pack()
-#
-#
-# # Checkbutton
-# def checkbutton_used():
-#     # Prints 1 if On button checked, otherwise 0.
-#     print(checked_state.get())
-#
-#
-# # variable to hold on to checked state, 0 is off, 1 is on.
-# checked_state = IntVar()
-# checkbutton = Checkbutton(text="Is On?", variable=checked_state, command=checkbutton_used)
-# checked_state.get()
-# checkbutton.pack()
-#
-#
-# # Radiobutton
-# def radio_used():
-#     print(radio_state.get())
-#
-#
-# # Variable to hold on to which radio button value is checked.
-# radio_state = IntVar()
-# radiobutton1 = Radiobutton(text="Option1", value=1, variable=radio_state, command=radio_used)
-# radiobutton2 = Radiobutton(text="Option2", value=2, variable=radio_state, command=radio_used)
-# radiobutton1.pack()
-# radiobutton2.pack()
-#
-#
-# # Listbox
-# def listbox_used(event):
-#     # Gets current selection from listbox
-#     print(listbox.get(listbox.curselection()))
-#
-#
-# listbox = Listbox(height=4)
-# fruits = ["Apple", "Pear", "Orange", "Banana"]
-# for item in fruits:
-#     listbox.insert(fruits.index(item), item)
-# listbox.bind("<<ListboxSelect>>", listbox_used)
-# listbox.pack()
+spinbox = Spinbox(from_=0, to=10, width=5, command=spinbox_used)
+spinbox.pack()
+
+
+#Scale
+#Called with current scale value.
+def scale_used():
+    print(scale.get())
+
+
+scale = Scale(from_=0, to=100, command=scale_used)
+scale.pack()
+
+
+# Checkbutton
+def checkbutton_used():
+    # Prints 1 if On button checked, otherwise 0.
+    print(checked_state.get())
+
+
+# variable to hold on to checked state, 0 is off, 1 is on.
+checked_state = IntVar()
+checkbutton = Checkbutton(text="Is On?", variable=checked_state, command=checkbutton_used)
+checked_state.get()
+checkbutton.pack()
+
+
+# Radiobutton
+def radio_used():
+    print(radio_state.get())
+
+
+# Variable to hold on to which radio button value is checked.
+radio_state = IntVar()
+radiobutton1 = Radiobutton(text="Option1", value=1, variable=radio_state, command=radio_used)
+radiobutton2 = Radiobutton(text="Option2", value=2, variable=radio_state, command=radio_used)
+radiobutton1.pack()
+radiobutton2.pack()
+
+
+# Listbox
+def listbox_used(event):
+    # Gets current selection from listbox
+    print(listbox.get(listbox.curselection()))
+
+
+listbox = Listbox(height=4)
+fruits = ["Apple", "Pear", "Orange", "Banana"]
+for item in fruits:
+    listbox.insert(fruits.index(item), item)
+listbox.bind("<<ListboxSelect>>", listbox_used)
+listbox.pack()
 
 window.mainloop()
