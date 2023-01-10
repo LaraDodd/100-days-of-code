@@ -14,7 +14,9 @@ REPS = 1
 
 
 # ---------------------------- TIMER RESET ------------------------------- #
-def restart():
+def display_timeslot():
+    """this function writes to the timer text depending on the rep number. It calls the add check function
+    and writes to text label about time slot """
     if REPS % 2 != 0 and REPS < 8:
         minutes = WORK_MIN
         break_type_label.config(text="Work!")
@@ -23,26 +25,28 @@ def restart():
         break_type_label.config(text="Break!")
     elif REPS == 8:
         minutes = LONG_BREAK_MIN
-        break_type_label.config(text="LOOOOOOONG BREAK!")
+        break_type_label.config(text="LONG BREAK!")
     else:
         minutes = "00"
         break_type_label.config(text="DONE")
 
     add_check()
-    canvas.itemconfig(text, text=f"{minutes}:00")
+    canvas.itemconfig(timer_text, text=f"{minutes}:00")
 
 
 def reset():
+    """resets reps to 1. Resets all text labels and canvas text"""
     global REPS
     REPS = 1
     break_type_label.config(text="")
-    canvas.itemconfig(text, text=f"00:00")
     check_label.config(text="")
+    canvas.itemconfig(timer_text, text=f"00:00")
 
 
 def add_check():
+    """rewrites the check label depending on rep number"""
     global REPS
-    if REPS >= 8:
+    if REPS > 8:
         check_label.config(text="✔✔✔✔")
     elif REPS > 6:
         check_label.config(text="✔✔✔")
@@ -54,6 +58,7 @@ def add_check():
 
 # ---------------------------- TIMER ------------------------------- #
 def start_timer():
+    """calls the update time function, and passes in different minute parameters depending on rep number"""
     global REPS
 
     if REPS % 2 != 0 and REPS < 8:
@@ -62,14 +67,16 @@ def start_timer():
         minutes = SHORT_BREAK_MIN
     elif REPS == 8:
         minutes = LONG_BREAK_MIN
-    else:
-        restart()
 
     update_time(minutes=minutes - 1, seconds=0)
 
 
 # ---------------------------- COUNTDOWN ------------------------------- #
 def update_time(seconds, minutes):
+    """uses window.after() to call itself each second and decrease the second count by 1 every time it is called.
+    writes the second and minutes to the timer_text in the canvas. Uses dynamic typing to aesthetically write 00:00
+    clock. When minutes go below zero, calls the display timeslot function which displays the next time slot and
+    adds 1 to the reps."""
     if seconds < 0:
         seconds = 59
 
@@ -81,17 +88,16 @@ def update_time(seconds, minutes):
     if pretty_minutes < 0:
         global REPS
         REPS += 1
-        restart()
+        display_timeslot()
 
         print(REPS)
-
         return
 
     if minutes < 9:
         pretty_minutes = "0" + str(math.ceil(minutes))
 
     window.after(1, update_time, seconds - 1, minutes - (1 / 60))
-    canvas.itemconfig(text, text=f"{pretty_minutes}:{pretty_seconds}")
+    canvas.itemconfig(timer_text, text=f"{pretty_minutes}:{pretty_seconds}")
 
 
 # ---------------------------- UI SETUP ------------------------------- #
@@ -113,7 +119,7 @@ image = canvas.create_image(100, 112, anchor="center", image=filename)
 canvas.grid(row=1, column=1)
 
 # add text
-text = canvas.create_text(100, 130, text=f"00:00", fill="white", font=("courier", 25, "bold"), anchor="center")
+timer_text = canvas.create_text(100, 130, text=f"00:00", fill="white", font=("courier", 25, "bold"), anchor="center")
 canvas.grid(row=1, column=1)
 
 # add buttons
