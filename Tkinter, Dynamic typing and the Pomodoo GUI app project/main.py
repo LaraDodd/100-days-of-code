@@ -96,7 +96,7 @@ def update_time(seconds, minutes):
     if minutes < 9:
         pretty_minutes = "0" + str(math.ceil(minutes))
 
-    window.after(1000, update_time, seconds - 1, minutes - (1 / 60))
+    window.after(1, update_time, seconds - 1, minutes - (1 / 60))
     canvas.itemconfig(timer_text, text=f"{pretty_minutes}:{pretty_seconds}")
 
 
