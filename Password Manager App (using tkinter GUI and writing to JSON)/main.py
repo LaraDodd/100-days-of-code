@@ -52,22 +52,24 @@ def get_data_and_add():
                              }}
 
             try:
-                #read in json data
+                # try to read in json data
                 with open("password_data.json", "r") as pwd_jsn_file:
                     data = json.load(pwd_jsn_file)
                     print(data)
 
-                #update json data
+            except FileNotFoundError:
+                #if file doesn't exist, set data to new data
+                print("file not found")
+                data = new_data
+
+            else:
+                # if file does exist, update json file data with new data
                 data.update(new_data)
 
-                #rewrite data into json
+            finally:
+                #write data to json object, wether it is the new data or the updated data
                 with open("password_data.json", "w") as pwd_jsn_file:
                     json.dump(data, pwd_jsn_file, indent=4)
-
-            except FileNotFoundError:
-                print("file not found")
-                with open("password_data.json", "w") as pwd_jsn_file:
-                    json.dump(new_data, pwd_jsn_file, indent=4)
 
 
             password_input.delete(0, "end")
