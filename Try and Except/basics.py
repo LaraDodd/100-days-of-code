@@ -1,38 +1,39 @@
-# try first piece of code, if doesn't work go into except code
-try:
-    file = open("my_file.txt")
-except:
-    file = open("my_file.txt", "w")
-
-# except in code above has yeelow squiggly because program does not specifiy to the except
-# what kind of error the except should excuse. E.g. code below works fine even though there is a
-# key value error:
-try:
-    file = open("my_file.txt")
-    dictionary = {"key": "value"}
-    print(dictionary["dfghjk"])
-except:
-    file = open("my_file.txt", "w")
-
-# need to specify error type
-try:
-    file = open("my_file.txt")
-    dictionary = {"key": "value"}
-    print(dictionary["dfghjk"])
-except FileNotFoundError:
-    file = open("my_file.txt", "w")
-except KeyError:
-    print("That key does not exist")
-
-# can also specify the error message in the except, to make it clearer
-try:
-    file = open("my_file.txt")
-    dictionary = {"key": "value"}
-    print(dictionary["dfghjk"])
-except KeyError as error_message:
-    print(f"That key {error_message} does not exist")
-except FileNotFoundError:
-    file = open("my_file.txt", "w")
+# # try first piece of code, if doesn't work go into except code
+# try:
+#     file = open("my_file.txt")
+# except:
+#     file = open("my_file.txt", "w")
+#
+# # except in code above has yeelow squiggly because program does not specifiy to the except
+# # what kind of error the except should excuse. E.g. code below works fine even though there is a
+# # key value error:
+# try:
+#     file = open("my_file.txt")
+#     dictionary = {"key": "value"}
+#     print(dictionary["dfghjk"])
+# except:
+#     file = open("my_file.txt", "w")
+#
+# # need to specify error type
+# try:
+#     file = open("my_file.txt")
+#     dictionary = {"key": "value"}
+#     print(dictionary["dfghjk"])
+# except FileNotFoundError:
+#     file = open("my_file.txt", "w")
+# except KeyError:
+#     print("That key does not exist")
+#
+# # can also specify the error message in the except, to make it clearer
+# try:
+#     file = open("my_file.txt")
+#     dictionary = {"key": "value"}
+#     print(dictionary["dfghjk"])
+# except KeyError as error_message:
+#     print(f"That key {error_message} does not exist")
+# except FileNotFoundError:
+#     file = open("my_file.txt", "w")
+#
 
 # if file did exist and key was correct, else would be called:
 try:
