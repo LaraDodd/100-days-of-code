@@ -2,7 +2,7 @@ from tkinter import *
 import string
 import random
 from tkinter import messagebox
-
+import pyperclip
 
 # ================= GENERATE PASSWORD =================
 def generate_password_click():
@@ -22,6 +22,8 @@ def generate_password_click():
     random.shuffle(password)  # mix up the list of chars
     password = ''.join(password)
 
+    pyperclip.copy(password) # copies password to clipboard
+    pop_up_label.config(text="Password copied to clipboard!")
     password_input.insert(0, password)
 
 
@@ -59,6 +61,11 @@ window.config(padx=30, pady=30)
 window.configure(background='#fffcf7')
 
 # creating label components
+
+pop_up_label = Label(text="", font=("arial", 8, "normal"), bg="#fffcf7", fg="#555b6e")
+pop_up_label.grid(column=0, row=5, columnspan=3, sticky="EW")
+pop_up_label.config(padx=5, pady=5)
+
 website_label = Label(text="Website:", font=("arial", 12, "normal"), bg="#fffcf7", fg="#555b6e")
 website_label.grid(column=0, row=1, sticky="E")
 website_label.config(padx=5, pady=5)
