@@ -1,10 +1,13 @@
 from tkinter import *
+from tkinter import messagebox
 
 
 def button_clicked():
-    print("clicked")
-    my_label.config(text=input.get())  # can't just write user_input = input.get() and pass in user_input
-    # as you're assigning a non-global variable to an argument inside a function
+    yes = messagebox.askyesno("pop up", "do you want to carry on?")
+    if yes:
+        print("clicked")
+        my_label.config(text=input.get())  # can't just write user_input = input.get() and pass in user_input
+        # as you're assigning a non-global variable to an argument inside a function
 
 
 # create window

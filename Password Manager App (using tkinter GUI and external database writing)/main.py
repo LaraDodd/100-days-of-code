@@ -1,6 +1,7 @@
 from tkinter import *
 import string
 import random
+from tkinter import messagebox
 
 
 # ================= GENERATE PASSWORD =================
@@ -30,15 +31,21 @@ def get_data_and_add():
     username = username_input.get()
     password = password_input.get()
 
-    add(website, username, password)
+    if len(website) == 0 or len(username) == 0 or len(password) == 0:
+        messagebox.showwarning("warning", "Don't leave any entry blank!")
+    else:
+        is_ok = messagebox.askyesno("Sanity check", f"Are these details correct?\n "
+                                                       f"Website: {website}\n"
+                                                       f"Username / Email: {username}\n"
+                                                       f"Password: {password}?")
+        if is_ok:
+            text_string = ' | '.join((website, username, password))
 
+            with open("password_login_data.txt", "a") as file:
+                file.write(f"{text_string}\n")
 
-def add(website, username, password):
-    text_string = ' | '.join((website, username, password))
-
-    with open("password_login_data.txt", "a") as file:
-        file.write(f"{text_string}\n")
-
+            password_input.delete(0, "end")
+            website_input.delete(0, "end")
 
 # ================= SANITY CHECKS =================
 
@@ -67,10 +74,11 @@ password_label.config(padx=5, pady=10)
 # creating entry boxes
 website_input = Entry(width=50, highlightcolor="#a1b5d8", highlightthickness=2, border=1)
 website_input.grid(column=1, row=1, columnspan=2, sticky="EW")
-website_input.focus()
+website_input.focus()  # put cursor in this entry box as default
 
 username_input = Entry(width=50, highlightcolor="#a1b5d8", highlightthickness=2, border=1)
 username_input.grid(column=1, row=2, columnspan=2, sticky="EW")
+username_input.insert(END, 'laradodd97@gmail.com') # add initial default text
 
 password_input = Entry(width=30, highlightcolor="#a1b5d8", highlightthickness=2, border=1)
 password_input.grid(column=1, row=3, sticky="W")
