@@ -3,6 +3,7 @@ import string
 import random
 from tkinter import messagebox
 import pyperclip
+import json
 
 # ================= GENERATE PASSWORD =================
 def generate_password_click():
@@ -41,10 +42,33 @@ def get_data_and_add():
                                                        f"Username / Email: {username}\n"
                                                        f"Password: {password}?")
         if is_ok:
-            text_string = ' | '.join((website, username, password))
+            # text_string = ' | '.join((website, username, password))
+            # with open("password_login_data.txt", "a") as file:
+            #     file.write(f"{text_string}\n")
 
-            with open("password_login_data.txt", "a") as file:
-                file.write(f"{text_string}\n")
+            new_data = {website:
+                            {"username": username,
+                             "password": password,
+                             }}
+
+            try:
+                #read in json data
+                with open("password_data.json", "r") as pwd_jsn_file:
+                    data = json.load(pwd_jsn_file)
+                    print(data)
+
+                #update json data
+                data.update(new_data)
+
+                #rewrite data into json
+                with open("password_data.json", "w") as pwd_jsn_file:
+                    json.dump(data, pwd_jsn_file, indent=4)
+
+            except FileNotFoundError:
+                print("file not found")
+                with open("password_data.json", "w") as pwd_jsn_file:
+                    json.dump(new_data, pwd_jsn_file, indent=4)
+
 
             password_input.delete(0, "end")
             website_input.delete(0, "end")
