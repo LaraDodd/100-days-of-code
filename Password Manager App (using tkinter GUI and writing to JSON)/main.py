@@ -29,6 +29,30 @@ def generate_password_click():
 
 
 # ================= STORE IN DB =================
+def search():
+    password_input.delete(0, END)
+
+    try:
+        with open("password_data.json", "r") as password_json_file:
+            data = json.load(password_json_file)
+
+    except FileNotFoundError:
+        print("Nothing in the database yet")
+
+    else:
+        website = website_input.get()
+
+        match_found = False
+        for (key, value) in data.items():
+            print(key)
+            if website == key:
+                password = data[website]["password"]
+                password_input.insert(0, password)
+                match_found = True
+
+        if not match_found:
+            messagebox.showinfo("Pop!", "This isn't in the database, sorry!")
+
 def get_data_and_add():
     website = website_input.get()
     username = username_input.get()
@@ -55,7 +79,7 @@ def get_data_and_add():
                 # try to read in json data
                 with open("password_data.json", "r") as pwd_jsn_file:
                     data = json.load(pwd_jsn_file)
-                    print(data)
+
 
             except FileNotFoundError:
                 #if file doesn't exist, set data to new data
@@ -105,8 +129,8 @@ password_label.grid(column=0, row=3, sticky="E")
 password_label.config(padx=5, pady=10)
 
 # creating entry boxes
-website_input = Entry(width=50, highlightcolor="#a1b5d8", highlightthickness=2, border=1)
-website_input.grid(column=1, row=1, columnspan=2, sticky="EW")
+website_input = Entry(width=30, highlightcolor="#a1b5d8", highlightthickness=2, border=1)
+website_input.grid(column=1, row=1, sticky="W")
 website_input.focus()  # put cursor in this entry box as default
 
 username_input = Entry(width=50, highlightcolor="#a1b5d8", highlightthickness=2, border=1)
@@ -123,6 +147,9 @@ add_button.grid(row=4, column=1, columnspan=2, sticky="EW")
 gen_pass_button = Button(text="Generate Password", bg="#c2d8b9", fg="#555b6e",
                          command=generate_password_click)  # give command when clicked
 gen_pass_button.grid(row=3, column=2, sticky="E")
+
+search_button = Button(text="          Search       ", bg="#c2d8b9", fg="#555b6e", anchor="center", command=search)  # give command when clicked
+search_button.grid(row=1, column=2, sticky="E")
 
 # create canvas and add padlock image
 canvas = Canvas(window, bg="#fffcf7", height=200, width=200, highlightthickness=0, relief='ridge')
