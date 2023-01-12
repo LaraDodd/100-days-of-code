@@ -99,7 +99,6 @@ def get_data_and_add():
             password_input.delete(0, "end")
             website_input.delete(0, "end")
 
-# ================= SANITY CHECKS =================
 
 
 # ============== CREATE THE UI ===============
