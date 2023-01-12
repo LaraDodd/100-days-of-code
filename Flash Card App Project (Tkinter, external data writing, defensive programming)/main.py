@@ -4,6 +4,19 @@ import random
 
 BACKGROUND_COLOR = "#B1DDC6"
 
+# ================ PULLING DATA AND UPDATING FLASHCARD =================
+def choose_word():
+    with open("./Data/Spanish 500 frequency dict words - Sheet1.csv", "r") as words_file:
+        words = words_file.readlines()
+
+    word_choice = random.choice(words)
+    print(word_choice)
+    words_in_list = word_choice.split(",")
+    return words_in_list
+
+def update_flashcard():
+    word = choose_word()[0]
+    canvas.itemconfig(word_text, text=word)
 
 
 # ============== CREATE THE UI ===============
@@ -30,12 +43,12 @@ canvas.grid(row=0, column=0)
 
 # create tick button
 tick_image = PhotoImage(file="./Images/right.png")
-tick_button = Button(window, bg=BACKGROUND_COLOR, image=tick_image, borderwidth=0)
+tick_button = Button(window, bg=BACKGROUND_COLOR, image=tick_image, borderwidth=0, command=update_flashcard)
 tick_button.grid(row=1, column=0)
 
 # create cross button
 cross_image = PhotoImage(file="./Images/wrong.png")
-cross_button = Button(window, bg=BACKGROUND_COLOR, image=cross_image, borderwidth=0)
+cross_button = Button(window, bg=BACKGROUND_COLOR, image=cross_image, borderwidth=0, command=update_flashcard)
 cross_button.grid(row=1, column=1)
 
 
