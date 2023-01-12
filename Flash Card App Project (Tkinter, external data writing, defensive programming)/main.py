@@ -15,8 +15,25 @@ def choose_word():
     return words_in_list
 
 def update_flashcard():
-    word = choose_word()[0]
-    canvas.itemconfig(word_text, text=word)
+    word = choose_word()
+    spanish_word = word[0]
+    canvas.itemconfig(word_text, text=spanish_word)
+    return ','.join(word)
+
+def tick_clicked():
+    word = update_flashcard()
+    with open("./Data/Spanish 500 frequency dict words - Sheet1.csv", "r") as words_file:
+        data = words_file.read()
+    new_data = data.replace(word, "")
+    with open("./Data/Spanish 500 frequency dict words - Sheet1.csv", "w") as words_file:
+        words_file.write(new_data)
+    with open("./Data/Known words", "a") as known_words_file:
+        known_words_file.write(f"{word}")
+def cross_clicked():
+    update_flashcard()
+
+def flip_card():
+    pass
 
 
 # ============== CREATE THE UI ===============
@@ -43,12 +60,12 @@ canvas.grid(row=0, column=0)
 
 # create tick button
 tick_image = PhotoImage(file="./Images/right.png")
-tick_button = Button(window, bg=BACKGROUND_COLOR, image=tick_image, borderwidth=0, command=update_flashcard)
+tick_button = Button(window, bg=BACKGROUND_COLOR, image=tick_image, borderwidth=0, command=tick_clicked)
 tick_button.grid(row=1, column=0)
 
 # create cross button
 cross_image = PhotoImage(file="./Images/wrong.png")
-cross_button = Button(window, bg=BACKGROUND_COLOR, image=cross_image, borderwidth=0, command=update_flashcard)
+cross_button = Button(window, bg=BACKGROUND_COLOR, image=cross_image, borderwidth=0, command=cross_clicked)
 cross_button.grid(row=1, column=1)
 
 
