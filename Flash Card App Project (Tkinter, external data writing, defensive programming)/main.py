@@ -22,12 +22,12 @@ def new_flashcard():
     word to flashcard word text label. Calls flipcard with english word as argument input. Returns a string of
     spanish and english word separated by a comma"""
     canvas.itemconfig(card, image=front_card_image)
-    canvas.itemconfig(language_text, text="Spanish")
+    canvas.itemconfig(language_text, text="Spanish", fill="Black")
 
     word = choose_word()
     spanish_word = word[0]
     english_word = word[1]
-    canvas.itemconfig(word_text, text=spanish_word)
+    canvas.itemconfig(word_text, text=spanish_word, fill="Black")
 
     flip_card_scheduler(english_word)
 
@@ -61,8 +61,8 @@ def flip_card(word):
 
     Args: word - a string which is written in to canvas word text"""
     canvas.itemconfig(card, image=back_card_image)
-    canvas.itemconfig(language_text, text="English")
-    canvas.itemconfig(word_text, text=word)
+    canvas.itemconfig(language_text, text="English", fill="white")
+    canvas.itemconfig(word_text, text=word, fill="white")
 
 
 def flip_card_scheduler(word):
