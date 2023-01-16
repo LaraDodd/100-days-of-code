@@ -1,5 +1,4 @@
 """this program sends a motivational quote if it is a Monday"""
-
 import smtplib
 import datetime as dt
 import random
