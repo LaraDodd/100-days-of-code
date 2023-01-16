@@ -25,6 +25,7 @@ def generate_password_click():
 
     pyperclip.copy(password) # copies password to clipboard
     pop_up_label.config(text="Password copied to clipboard!")
+    password_input.delete(0, END)
     password_input.insert(0, password)
 
 

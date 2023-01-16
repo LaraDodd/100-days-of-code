@@ -25,6 +25,7 @@ pero,but
 sí,Yeah
 bien,all right
 eso,that
+su,his
 las,the
 yo,I
 del,of
@@ -33,15 +34,13 @@ tu,you
 aquí,here
 al,to the
 más,more
-le,you
 esto,this
+todo,everything
 ya,Already
 estoy,am
-muy,very
 ahora,now
 esta,is
 ha,ha
-vamos,come on
 algo,something
 así,So
 bueno,well
@@ -55,7 +54,6 @@ tú,your
 nada,nothing
 nos,us
 este,East
-cómo,What
 o,either
 he,He
 ser,to be
@@ -69,19 +67,16 @@ gracias,Thank you
 era,was
 vez,time
 sólo,only
-soy,am
 todos,everyone
 porque,why
 son,They are
 tienes,have
 creo,believe
 sabes,You know
-estaba,was
 voy,I go
 eres,are
 puede,may
 ese,that
-usted,you
 entonces,then
 hola,hello
 casa,house
@@ -95,12 +90,12 @@ nunca,never
 tiempo,weather
 esa,that
 oh,Oh
+dónde,where
 va,goes
 favor,favor
 quieres,you want
 señor,mister
 siento,I feel
-mucho,much
 mí,my
 mejor,better
 hace,does
@@ -108,7 +103,6 @@ decir,say
 has,you have
 también,too
 sobre,upon
-dios,God
 sin,without
 tenemos,we have
 están,is it so
@@ -117,25 +111,21 @@ puedes,you may
 hombre,man
 ver,watch
 vida,life
-alguien,somebody
 siempre,forever
 hasta,until
 cosas,stuff
 ahí,there
 años,years
 ir,go
-antes,before
 estar,be
 ni,neither
 poco,little bit
 noche,night
 uno,one
-día,day
 hecho,done
 mis,my
 estamos,we're
 otra,other
-acuerdo,agreement
 trabajo,worked
 nosotros,us
 parece,It seems
@@ -159,7 +149,6 @@ desde,since
 han,they have
 dinero,money
 mundo,world
-les,them
 claro,Clear
 tener,have
 estado,condition
@@ -189,17 +178,17 @@ amigo,friend
 gran,big
 nuestro,our
 mujer,women
-later,later
+luego,later
 mamá,breast
 días,days
 papá,father
 dice,He says
 tres,three
 hoy,today
+buena,good
 necesito,needed
 dije,I said
 gusta,like
-haber,to have
 quería,wanted
 parte,part
 será,will be
@@ -211,19 +200,18 @@ nombre,Name
 estas,are
 oye,hears
 nuestra,our
+realmente,Really
 mal,wrong
 debe,should
 aún,still
 mierda,shit
 mío,Own
-toda,all
 cada,every
 hacerlo,do it
 visto,viewed
 importa,It matters
 contigo,with you
 tienen,have
-alguna,some
 razón,reason
 hemos,we have
 tanto,so much
@@ -241,13 +229,11 @@ eh,Hey
 cierto,certain
 amor,love
 dicho,saying
-demasiado,too
 entre,Come in
 ve,go
 pasado,past
 estos,these
 chica,girl
-policía,police
 familia,family
 debería,should
 ustedes,you guys
@@ -257,7 +243,6 @@ cuenta,bill
 todavía,yet
 algún,some
 haces,you do
-salir,go out
 unos,some
 amigos,friends
 veo,I see
@@ -266,7 +251,6 @@ pensé,I thought
 hermano,brother
 cabeza,head
 sabía,knew
-cariño,sweetie
 hombres,mens
 buenas,good
 van,go
@@ -292,6 +276,7 @@ supuesto,supposed
 muchas,many
 esas,those
 personas,people
+durante,during
 volver,return
 camino,road
 contra,against
@@ -305,8 +290,6 @@ cuál,which
 manera,way
 supongo,i guess
 nueva,new
-ayuda,help
-iba,I was going
 dentro,within
 casi,almost
 ves,you see
@@ -346,7 +329,7 @@ dijiste,said
 importante,important
 miedo,fear
 jefe,chief
-os,you
+agua,Water
 horas,hours
 justo,just
 haré,I will do
@@ -357,14 +340,12 @@ manos,hands
 debes,you must
 ojos,eyes
 nuestros,our
-viene,comes
 mano,hand
 adelante,forward
 poder,can
 otros,others
 cinco,five
 viejo,old
-bajo,under
 encontrar,meet
 niño,kid
 cara,face
@@ -372,11 +353,11 @@ ninguna,none
 cuidado,care
 cerca,close
 noches,nights
+venga,come on
 mas,more
 déjame,let me
 bastante,pretty
 fin,End
-escucha,listens
 único,unique
 tomar,drink
 ningún,none
@@ -407,7 +388,6 @@ hago,I make
 arriba,above
 doctor,doctor
 hiciste,did
-dices,You say
 toma,taking
 guerra,war
 pensar,think
@@ -419,6 +399,7 @@ sangre,blood
 fui,I was
 igual,same
 vuelta,return
+cuerpo,Body
 tenido,Dyed
 trabajar,to work
 ok,okay
@@ -428,13 +409,13 @@ e,and
 algunas,some
 cree,Believe
 entrar,get in
+fiesta,party
 podía,could
 oportunidad,chance
 auto,auto
 listo,clever
 quieren,They want
 debemos,we must
-estabas,You were
 final,final
 necesitamos,we need
 muchos,Many
@@ -452,7 +433,6 @@ escuela,school
 habla,speaks
 capitán,captain
 culpa,fault
-eran,they were
 atrás,behind
 ello,it
 ido,gone
@@ -476,8 +456,8 @@ comida,food
 fácil,easy
 comer,eat
 lista,ready
-necesitas,you need
 creer,believe
+haga,make
 probablemente,probably
 fueron,were
 pensando,thinking
@@ -492,3 +472,34 @@ tuve,I had
 hijos,Children
 buscando,Looking for
 padres,parents
+haber,to have
+alguna,some
+antes,before
+mucho,much
+bajo,under
+le,you
+eran,they were
+demasiado,too
+necesitas,you need
+muy,very
+día,day
+estabas,You were
+viene,comes
+estaba,was
+os,you
+dices,You say
+ayuda,help
+soy,am
+alguien,somebody
+les,them
+usted,you
+vamos,come on
+dios,God
+escucha,listens
+salir,go out
+acuerdo,agreement
+toda,all
+policía,police
+cariño,sweetie
+cómo,What
+iba,I was going
