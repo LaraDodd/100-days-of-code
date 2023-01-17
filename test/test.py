@@ -20,12 +20,12 @@ print(line.xcor())
 #create line
 line = Turtle()
 line.penup()
-line.setpos(0,SCREEN_HEIGHT/2)
+line.setpos(0,500/2)
 line.pensize(10)
 line.color("white")
 line.setheading(270)
 
-while line.ycor() >= -SCREEN_HEIGHT/2:
+while line.ycor() >= -500/2:
     line.forward(10)
     line.pendown()
     line.forward(10)
