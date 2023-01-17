@@ -1,26 +1,26 @@
-Country,Code,Product,Cost,Quantity
-South Africa,SKU44386,Air Max 90,2300,20
-China,SKU90000,Jordan 1,3200,50
-Vietnam,SKU63221,Blazer,1700,19
-United States,SKU29077,Cortez,970,60
-Russia,SKU89999,Air Force 1,2000,43
-Australia,SKU57443,Waffle Racer,2700,54
-Canada,SKU68677,Air Max 97,3600,13
-Egypt,SKU19888,Dunk SB,1500,26
-Britain,SKU76000,Kobe 4,3400,32
-France,SKU84500,Pegasus,2490,28
-Zimbabwe,SKU20207,Air Presto,2999,7
-Morocco,SKU77744,Challenge Court,1450,11
-Israel,SKU29888,Air Zoom Generation,2680,56
-Uganda,SKU33000,Flyknit Racer,4900,9
-Pakistan,SKU77999,Air Yeezy 2,4389,67
-Brazil,SKU44600,Air Jordan 11,3870,24
-Columbia,SKU87500,Air Huarache,2683,8
-India,SKU38773,Air Max 1,1900,29
-Vietnam,SKU95000,Air Mag,2000,102
-Israel,SKU79084,Air Foamposite,2430,54
-China,SKU93222,Air Stab,1630,10
-South Korea,SKU66734,Hyperdunk,1899,7
-Australia,SKU71827,Zoom Hyperfuse,1400,15
-France,SKU20394,Eric Koston 1,2322,17
-uk,SKU7593,Airry,432,32
+Country,Code,Product,Cost (£),Quantity,Value (£)
+South Africa,SKU44386,Air Max 90,2300,20,46000
+China,SKU90000,Jordan 1,3200,50,160000
+Vietnam,SKU63221,Blazer,1700,19,32300
+United States,SKU29077,Cortez,970,60,58200
+Russia,SKU89999,Air Force 1,2000,43,86000
+Australia,SKU57443,Waffle Racer,2700,54,145800
+Canada,SKU68677,Air Max 97,3600,13,46800
+Egypt,SKU19888,Dunk SB,1500,26,39000
+Britain,SKU76000,Kobe 4,3400,32,108800
+France,SKU84500,Pegasus,2490,28,69720
+Zimbabwe,SKU20207,Air Presto,2999,13,38987
+Morocco,SKU77744,Challenge Court,1450,15,21750
+Israel,SKU29888,Air Zoom Generation,2680,56,150080
+Uganda,SKU33000,Flyknit Racer,4900,54,44100
+Pakistan,SKU77999,Air Yeezy 2,4389,67,294063
+Brazil,SKU44600,Air Jordan 11,3870,24,92880
+Columbia,SKU87500,Air Huarache,2683,19,50977
+India,SKU38773,Air Max 1,1900,29,55100
+Vietnam,SKU95000,Air Mag,2000,102,204000
+Israel,SKU79084,Air Foamposite,2430,54,131220
+China,SKU93222,Air Stab,1630,13,21190
+South Korea,SKU66734,Hyperdunk,1899,13,24687
+Australia,SKU71827,Zoom Hyperfuse,1400,15,21000
+France,SKU20394,Eric Koston 1,2322,17,39474
+uk,SKU7593,Airry,432,32,13824
