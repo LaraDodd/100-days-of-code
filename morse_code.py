@@ -16,10 +16,22 @@ MORSE_CODE_DICT = {'A': '.-', 'B': '-...',
                    '(': '-.--.', ')': '-.--.-', '': ""}
 
 
+
+
+
 class Solution:
+
+    def morse_correct(self, text):
+        word_list = text.split("   ")
+        for word in word_list:
+            if word not in MORSE_CODE_DICT.values():
+                return False
+            else:
+                return True
 
     def run(self, morseToEnglish: bool, textToTranslate: str) -> str:
         """method converts morse code to english text and english text to morse code.
+
         Args:
         morseToEnglish - boolean, true if the given input text is in morse and false if it is in english
         textToTranslate - a string containing the text we wish to translate
@@ -37,22 +49,25 @@ class Solution:
                     translatedText += MORSE_CODE_DICT[letter] + " "
 
         else:
-            word_list = textToTranslate.split("   ")
-            EngWords = []
+            if self.morse_correct(textToTranslate):
+                word_list = textToTranslate.split("   ")
+                EngWords = []
 
-            for word in word_list:
-                letter_list = word.split(" ")
+                for word in word_list:
+                    letter_list = word.split(" ")
 
-                new_word = ""
-                for letter in letter_list:
-                    if letter != " ":
+                    new_word = ""
+                    for letter in letter_list:
                         Engletter = list(MORSE_CODE_DICT.keys())[list(MORSE_CODE_DICT.values()).index(letter)]
                         new_word += Engletter
 
-                EngWords.append(new_word.lower())
-            translatedText = " ".join(EngWords)
+                    EngWords.append(new_word.lower())
+                translatedText = " ".join(EngWords)
+                return translatedText
 
-        return translatedText
+            else:
+                return "Invalid Morse Code Or Spacing"
+
 
 test = Solution()
 
