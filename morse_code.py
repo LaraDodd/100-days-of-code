@@ -22,12 +22,19 @@ MORSE_CODE_DICT = {'A': '.-', 'B': '-...',
 class Solution:
 
     def morse_correct(self, text):
-        word_list = text.split("   ")
-        for word in word_list:
-            if word not in MORSE_CODE_DICT.values():
-                return False
-            else:
-                return True
+        try:
+            word_list = text.split("   ")
+        except:
+            print("Invalid Morse Code Or Spacing")
+        else:
+            check = True
+            for word in word_list:
+                letters = word.split(" ")
+                for letter in letters:
+                    if letter not in MORSE_CODE_DICT.values():
+                        check = False
+            return check
+
 
     def run(self, morseToEnglish: bool, textToTranslate: str) -> str:
         """method converts morse code to english text and english text to morse code.
@@ -63,12 +70,13 @@ class Solution:
 
                     EngWords.append(new_word.lower())
                 translatedText = " ".join(EngWords)
-                return translatedText
-
             else:
-                return "Invalid Morse Code Or Spacing"
+                translatedText = "Invalid Morse Code Or Spacing"
+
+        return translatedText
+
 
 
 test = Solution()
 
-print(test.run(True, "- .... .   .-- .. --.. .- .-. -..   --.- ..- .. -.-. -.- .-.. -.--   "))
+print(test.run(True, "- .... .  .-- .. --.. .- .-. -*.  --.- ..- .. -.-. -.- .-.. -.--   "))
