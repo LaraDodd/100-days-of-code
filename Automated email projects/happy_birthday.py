@@ -53,13 +53,13 @@ def write_letter(person: str) -> str:
 
 def send_email(to_address: str, person:str) -> None:
     """Takes in email address as string and sends an email containing a randomly chosen quote to the adress, from
-    testdodd4@gmail.com
+    doddeedee123@gmail.com
 
     Args: to_address - string denoting an email address
           person - the name of the person email is sent to"""
 
-    my_email = "testdodd4@gmail.com"
-    password = "ejkfnemvhvomgnfc"
+    my_email = "Doddeedee123@gmail.com"
+    password = "yysxeebgavgijhgu"
 
     with smtplib.SMTP("smtp.gmail.com") as connection:
         connection.starttls()  # secures connection to email server to prevent risk of email hacking. tls = Transport

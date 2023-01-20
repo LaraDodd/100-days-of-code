@@ -14,12 +14,12 @@ def get_quote() -> str:
 
 def send_email(to_address) -> None:
     """Takes in email address as string and sends an email containing a randomly chosen quote to the adress, from
-    testdodd4@gmail.com
+    Doddeedee123@gmail.com
 
     Args: to_address - string denoting an email address """
 
-    my_email = "testdodd4@gmail.com"
-    password = "ejkfnemvhvomgnfc"
+    my_email = "Doddeedee123@gmail.com"
+    password = "yysxeebgavgijhgu"
 
     with smtplib.SMTP("smtp.gmail.com") as connection:
         connection.starttls()  # secures connection to email server to prevent risk of email hacking. tls = Transport
@@ -49,3 +49,4 @@ email_list = ["laradodd97@gmail.com", "richardjdodd@gmail.com", "isaacrayment123
 if is_monday():
     for email in email_list:
         send_email(email)
+        print("done")
