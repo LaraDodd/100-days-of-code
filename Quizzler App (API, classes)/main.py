@@ -3,86 +3,104 @@ from data import question_data
 from quiz_brain import QuizBrain
 import time
 
+
 def go_blue():
     canvas.config(bg=THEME_COLOR)
+    window.config(bg=THEME_COLOR)
 
-def true_ticked():
-    print("you clicked true")
-    next_q("true")
 
 def correct():
     canvas.config(bg="green")
-    canvas.after(500, go_blue)
+    window.config(bg="green")
+    canvas.after(200, go_blue)
+
 
 def incorrect():
     canvas.config(bg="red")
-    canvas.after(500, go_blue)
+    window.config(bg="red")
+    canvas.after(200, go_blue)
+
+
+def display_q():
+    if quiz.still_has_questions():
+        canvas.itemconfig(quiz_text, text=f"{quiz.question_number + 1} {quiz.question_list[quiz.question_number].text}")
+        score.config(text=f"{quiz.score}/{quiz.question_number+1}")
+    else:
+        canvas.itemconfig(quiz_text, text=f"You've completed the quiz!\nYour final score was: "
+                                          f"{quiz.score}/{quiz.question_number}", font=("Ariel", 30, "italic"))
+
+
+def true_ticked():
+    display_q()
+    next_q("true")
+    if quiz.current_question.answer.lower() == "true":
+        correct()
+    else:
+        incorrect()
 
 
 def false_ticked():
+    display_q()
     next_q("false")
+    if quiz.current_question.answer.lower() == "false":
+        correct()
+    else:
+        incorrect()
 
 
 def next_q(answer):
     canvas.config(bg=THEME_COLOR)
     quiz.next_question(answer)
-    canvas.itemconfig(quiz_text, text=f"{quiz.question_number} {quiz.current_question.text}")
+    display_q()
 
 
-#=================UI===========
+# =================UI===========
 from tkinter import *
 
 THEME_COLOR = "#375362"
 
 window = Tk()
 window.title("Quizzle")
-window.minsize(500, 500)
-window.config(padx=50, pady=50, bg=THEME_COLOR)
+window.minsize(500, 400)
+window.config(padx=20, pady=20, bg=THEME_COLOR)
 
-canvas = Canvas(width=600, height=526, bg=THEME_COLOR, highlightthickness=0)
+canvas = Canvas(width=600, height=500, bg=THEME_COLOR, highlightthickness=0)
 quiz_bg_img = PhotoImage(file="images/speech.png")
 canvas_background = canvas.create_image(300, 263, image=quiz_bg_img)
-quiz_text = canvas.create_text(300, 200, text="question 1", font=("Ariel", 20, "italic"), width=350)
-canvas.grid(row=0, column=0, columnspan=2)
-
+quiz_text = canvas.create_text(300, 200, text="", font=("Ariel", 20, "italic"), width=350)
+canvas.grid(row=1, column=0, columnspan=2)
 
 cross_image = PhotoImage(file="images/false.png")
 wrong_button = Button(image=cross_image, highlightthickness=0, command=false_ticked)
 wrong_button.config(pady=20, padx=20)
-wrong_button.grid(row=1, column=0)
-
+wrong_button.grid(row=2, column=0)
 
 check_image = PhotoImage(file="images/true.png")
 right_button = Button(image=check_image, highlightthickness=0, command=true_ticked)
-right_button.grid(row=1, column=1)
-
-
-
-
-
-
-
+right_button.grid(row=2, column=1)
 
 question_bank = []
-#iteration through question data, create question object using Question class and append to question bank list
+# iteration through question data, create question object using Question class and append to question bank list
 for question in question_data:
     question_text = question["question"]
     question_answer = question["correct_answer"]
     new_question = Question(question_text, question_answer)
     question_bank.append(new_question)
 
-
-#create suiz object using QuizBrain and pass in list of question objects
+# create quiz object using QuizBrain and pass in list of question objects
 quiz = QuizBrain(question_bank)
+for q in question_bank:
+    print(q.text)
 
-print(f"wqje {question_bank}")
+canvas.itemconfig(quiz_text, text=f"{quiz.question_number + 1} {quiz.current_question.text}")
 
-num = 0
-while num <5:
-    canvas.itemconfig(quiz_text, text=f"1. {question_bank[0].text}")
-    num +=1
+score = Label(text=f"{quiz.score}/{quiz.question_number}", font=("Ariel", 12), bg=THEME_COLOR)
+score.grid(row=0, column=0, columnspan=2)
 
-
+# if quiz.still_has_questions():
+#     print("no more q's")
+#     canvas.itemconfig(quiz_text, text=f"You've completed the quiz!\nYour final score was: "
+#                                       f"{quiz.score}/{quiz.question_number}", font=("Ariel", 30, "italic"))
 
 window.mainloop()
 
