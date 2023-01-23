@@ -89,11 +89,9 @@ for state in states_to_guess:
 if name not in name_list:
     new_row = {'Name': name, 'Score': score.score, }
     leaderboard_df = leaderboard_df.append(new_row, ignore_index=True)
-    print("test")
     leaderboard_df.to_csv("leaderboard.csv", index=False)
 
 else:
-    print("got here")
     name_row = leaderboard_df[leaderboard_df.Name == name]
     name_score = int(name_row.Score)
     if score.score > name_score:
