@@ -6,6 +6,32 @@ from tkinter import messagebox
 from tkinter.simpledialog import askstring
 import pandas
 import html
+from scoreboard import Scoreboard
+
+
+def add_to_leaderboard():
+    name = askstring('Name', 'What is your name?')
+    window.after(1000, exit)
+
+    try:
+        leaderboard_df = pandas.read_csv("leaderboard.csv", index_col=False)
+    except FileNotFoundError:
+        first_row = {'Name': [name], 'Score': [quiz.score], }
+        leaderboard_df = pandas.DataFrame.from_dict(first_row)
+        leaderboard_df.to_csv("leaderboard.csv", index=False)
+    else:
+        name_list = leaderboard_df.Name.to_list()
+        if name not in name_list:
+            new_row = {'Name': name, 'Score': quiz.score, }
+            leaderboard_df = leaderboard_df.append(new_row, ignore_index=True)
+            leaderboard_df.to_csv("leaderboard.csv", index=False)
+
+        else:
+            name_row = leaderboard_df[leaderboard_df.Name == name]
+            name_score = int(name_row.Score)
+            if quiz.score > name_score:
+                leaderboard_df.loc[leaderboard_df.Name == name, "Score"] = quiz.score
+            leaderboard_df.to_csv("leaderboard.csv", index=False)
 
 
 def go_blue():
@@ -28,8 +54,9 @@ def incorrect():
 def display_q():
     if quiz.still_has_questions():
         q_text = html.unescape(quiz.question_list[quiz.question_number].text)
-        canvas.itemconfig(quiz_text, text=f"{quiz.question_number + 1} {q_text}")
-        score.config(text=f"{quiz.score}/{quiz.question_number + 1}")
+        canvas.itemconfig(quiz_text, text=f"{quiz.question_number} {q_text}")
+        score.config(text=f"Your score: {quiz.score}/{quiz.question_number}\n"
+                   f"Score to beat: {scoreboard.highscore} from {scoreboard.leader}")
     else:
         canvas.itemconfig(quiz_text, text=f"You've completed the quiz!\nYour final score was: "
                                           f"{quiz.score}/{quiz.question_number}", font=("Ariel", 30, "italic"))
@@ -97,35 +124,11 @@ for q in question_bank:
 
 canvas.itemconfig(quiz_text, text=f"{quiz.question_number + 1} {html.unescape(quiz.current_question.text)}")
 
-score = Label(text=f"{quiz.score}/{quiz.question_number}", font=("Ariel", 12), bg=THEME_COLOR)
+# show the score and score to beat
+scoreboard = Scoreboard()
+score = Label(text=f"Your score: {quiz.score}/{quiz.question_number}\n"
+                   f"Score to beat: {scoreboard.highscore} from {scoreboard.leader}", font=("Ariel", 12), bg=THEME_COLOR)
 score.grid(row=0, column=0, columnspan=2)
-
-
-def add_to_leaderboard():
-    name = askstring('Name', 'What is your name?')
-    window.after(1000, exit)
-
-
-    try:
-        leaderboard_df = pandas.read_csv("leaderboard.csv", index_col=False)
-    except FileNotFoundError:
-        first_row = {'Name': [name], 'Score': [quiz.score], }
-        leaderboard_df = pandas.DataFrame.from_dict(first_row)
-        leaderboard_df.to_csv("leaderboard.csv", index=False)
-    else:
-        name_list = leaderboard_df.Name.to_list()
-        if name not in name_list:
-            new_row = {'Name': name, 'Score': quiz.score, }
-            leaderboard_df = leaderboard_df.append(new_row, ignore_index=True)
-            leaderboard_df.to_csv("leaderboard.csv", index=False)
-
-        else:
-            name_row = leaderboard_df[leaderboard_df.Name == name]
-            name_score = int(name_row.Score)
-            if quiz.score > name_score:
-                leaderboard_df.loc[leaderboard_df.Name == name, "Score"] = quiz.score
-            leaderboard_df.to_csv("leaderboard.csv", index=False)
-
 
 window.mainloop()
 

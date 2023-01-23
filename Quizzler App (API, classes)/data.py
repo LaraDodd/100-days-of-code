@@ -2,7 +2,7 @@ import requests
 """this module gets data from quizzler api"""
 
 param_dict = {"type": "boolean",
-              "amount": "15",}
+              "amount": "5",}
 
 response = requests.get(url="https://opentdb.com/api.php", params=param_dict)
 print(response.raise_for_status())
