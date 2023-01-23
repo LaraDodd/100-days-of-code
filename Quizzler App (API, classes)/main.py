@@ -1,8 +1,11 @@
 from question_model import Question
 from data import question_data
 from quiz_brain import QuizBrain
+from tkinter import *
+from tkinter import messagebox
+from tkinter.simpledialog import askstring
+import pandas
 import html
-import time
 
 
 def go_blue():
@@ -30,7 +33,8 @@ def display_q():
     else:
         canvas.itemconfig(quiz_text, text=f"You've completed the quiz!\nYour final score was: "
                                           f"{quiz.score}/{quiz.question_number}", font=("Ariel", 30, "italic"))
-        window.after(5000, exit)
+        add_to_leaderboard()
+        # window.after(5000, exit)
 
 
 def true_ticked():
@@ -53,7 +57,7 @@ def next_q(answer):
 
 
 # =================UI===========
-from tkinter import *
+
 
 THEME_COLOR = "#375362"
 
@@ -95,6 +99,33 @@ canvas.itemconfig(quiz_text, text=f"{quiz.question_number + 1} {html.unescape(qu
 
 score = Label(text=f"{quiz.score}/{quiz.question_number}", font=("Ariel", 12), bg=THEME_COLOR)
 score.grid(row=0, column=0, columnspan=2)
+
+
+def add_to_leaderboard():
+    name = askstring('Name', 'What is your name?')
+    window.after(1000, exit)
+
+
+    try:
+        leaderboard_df = pandas.read_csv("leaderboard.csv", index_col=False)
+    except FileNotFoundError:
+        first_row = {'Name': [name], 'Score': [quiz.score], }
+        leaderboard_df = pandas.DataFrame.from_dict(first_row)
+        leaderboard_df.to_csv("leaderboard.csv", index=False)
+    else:
+        name_list = leaderboard_df.Name.to_list()
+        if name not in name_list:
+            new_row = {'Name': name, 'Score': quiz.score, }
+            leaderboard_df = leaderboard_df.append(new_row, ignore_index=True)
+            leaderboard_df.to_csv("leaderboard.csv", index=False)
+
+        else:
+            name_row = leaderboard_df[leaderboard_df.Name == name]
+            name_score = int(name_row.Score)
+            if quiz.score > name_score:
+                leaderboard_df.loc[leaderboard_df.Name == name, "Score"] = quiz.score
+            leaderboard_df.to_csv("leaderboard.csv", index=False)
+
 
 window.mainloop()
 
