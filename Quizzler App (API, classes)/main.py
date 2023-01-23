@@ -33,23 +33,20 @@ def display_q():
 def true_ticked():
     display_q()
     next_q("true")
-    if quiz.current_question.answer.lower() == "true":
-        correct()
-    else:
-        incorrect()
+
 
 
 def false_ticked():
     display_q()
     next_q("false")
-    if quiz.current_question.answer.lower() == "false":
-        correct()
-    else:
-        incorrect()
+
 
 
 def next_q(answer):
-    canvas.config(bg=THEME_COLOR)
+    if quiz.current_question.answer.lower() == answer:
+        correct()
+    else:
+        incorrect()
     quiz.next_question(answer)
     display_q()
 
