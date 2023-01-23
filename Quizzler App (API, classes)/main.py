@@ -1,6 +1,7 @@
 from question_model import Question
 from data import question_data
 from quiz_brain import QuizBrain
+import html
 import time
 
 
@@ -23,7 +24,8 @@ def incorrect():
 
 def display_q():
     if quiz.still_has_questions():
-        canvas.itemconfig(quiz_text, text=f"{quiz.question_number + 1} {quiz.question_list[quiz.question_number].text}")
+        q_text = html.unescape(quiz.question_list[quiz.question_number].text)
+        canvas.itemconfig(quiz_text, text=f"{quiz.question_number + 1} {q_text}")
         score.config(text=f"{quiz.score}/{quiz.question_number+1}")
     else:
         canvas.itemconfig(quiz_text, text=f"You've completed the quiz!\nYour final score was: "
@@ -89,7 +91,7 @@ quiz = QuizBrain(question_bank)
 for q in question_bank:
     print(q.text)
 
-canvas.itemconfig(quiz_text, text=f"{quiz.question_number + 1} {quiz.current_question.text}")
+canvas.itemconfig(quiz_text, text=f"{quiz.question_number + 1} {html.unescape(quiz.current_question.text)}")
 
 score = Label(text=f"{quiz.score}/{quiz.question_number}", font=("Ariel", 12), bg=THEME_COLOR)
 score.grid(row=0, column=0, columnspan=2)
