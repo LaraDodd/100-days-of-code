@@ -23,11 +23,11 @@ class QuizInterface():
         self.canvas.grid(row=1, column=0, columnspan=2)
 
         cross_image = PhotoImage(file="images/false.png")
-        wrong_button = Button(image=cross_image, highlightthickness=0, command=self.get_next_question) # , command=false_ticked
+        wrong_button = Button(image=cross_image, highlightthickness=0, command=self.false_selected) # , command=false_ticked
         wrong_button.grid(row=2, column=0)
 
         check_image = PhotoImage(file="images/true.png")
-        right_button = Button(image=check_image, highlightthickness=0, command=self.get_next_question) # , command=true_ticked
+        right_button = Button(image=check_image, highlightthickness=0, command=self.true_selected) # , command=true_ticked
         right_button.grid(row=2, column=1)
 
         self.get_next_question()
@@ -43,14 +43,38 @@ class QuizInterface():
         self.canvas.itemconfig(tagOrId=self.quiz_text, text=q_text)
 
     def false_selected(self):
-        self.quiz.next_question()
-        user_answer = "false"
-        is_correct = self.quiz.check_answer(user_answer)
-        return is_correct
+        q_text = self.quiz.next_question()
+        self.canvas.itemconfig(tagOrId=self.quiz_text, text=q_text)
+        is_correct = self.quiz.check_answer(user_answer="false")
+        if is_correct:
+            self.flash_green()
+        else:
+            self.flash_red()
 
     def true_selected(self):
-        self.quiz.next_question()
-        user_answer = "true"
-        is_correct = self.quiz.check_answer(user_answer)
-        return is_correct
+        q_text = self.quiz.next_question()
+        self.canvas.itemconfig(tagOrId=self.quiz_text, text=q_text)
+        is_correct = self.quiz.check_answer(user_answer="true")
+        if is_correct:
+            self.flash_green()
+        else:
+            self.flash_red()
+
+    def go_blue(self):
+        self.canvas.config(bg=THEME_COLOR)
+        self.window.config(bg=THEME_COLOR)
+
+    def flash_green(self):
+        self.canvas.config(bg="green")
+        self.window.config(bg="green")
+        self.window.after(100, self.go_blue)
+
+    def flash_red(self):
+        self.canvas.config(bg="red")
+        self.window.config(bg="red")
+        self.window.after(100, self.go_blue)
+
+
+
+
 
