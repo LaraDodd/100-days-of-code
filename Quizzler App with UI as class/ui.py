@@ -43,22 +43,22 @@ class QuizInterface():
         self.canvas.itemconfig(tagOrId=self.quiz_text, text=q_text)
 
     def false_selected(self):
-        q_text = self.quiz.next_question()
-        self.canvas.itemconfig(tagOrId=self.quiz_text, text=q_text)
+        # q_text = self.quiz.next_question()
+        # self.canvas.itemconfig(tagOrId=self.quiz_text, text=q_text)
         is_correct = self.quiz.check_answer(user_answer="false")
         if is_correct:
             self.flash_green()
         else:
             self.flash_red()
+        self.get_next_question()
 
     def true_selected(self):
-        q_text = self.quiz.next_question()
-        self.canvas.itemconfig(tagOrId=self.quiz_text, text=q_text)
         is_correct = self.quiz.check_answer(user_answer="true")
         if is_correct:
             self.flash_green()
         else:
             self.flash_red()
+        self.get_next_question()
 
     def go_blue(self):
         self.canvas.config(bg=THEME_COLOR)
