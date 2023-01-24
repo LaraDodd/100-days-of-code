@@ -12,4 +12,5 @@ class Scoreboard:
             self.highscore = 0
         else:
             self.highscore = leaderboard_df.Score.astype(int).max()
+            # use Name.item() to pull out just value given a unique condition
             self.leader = leaderboard_df.query(f"Score=={self.highscore}").Name.item()

@@ -42,13 +42,13 @@ def go_blue():
 def correct():
     canvas.config(bg="green")
     window.config(bg="green")
-    canvas.after(200, go_blue)
+    canvas.after(100, go_blue)
 
 
 def incorrect():
     canvas.config(bg="red")
     window.config(bg="red")
-    canvas.after(200, go_blue)
+    canvas.after(100, go_blue)
 
 
 def display_q():
@@ -60,6 +60,7 @@ def display_q():
     else:
         canvas.itemconfig(quiz_text, text=f"You've completed the quiz!\nYour final score was: "
                                           f"{quiz.score}/{quiz.question_number}", font=("Ariel", 30, "italic"))
+        score.config(text=f"Your score: {quiz.score}/{quiz.question_number}\n")
         add_to_leaderboard()
         # window.after(5000, exit)
 
@@ -67,18 +68,22 @@ def display_q():
 def true_ticked():
     display_q()
     next_q("true")
+    if quiz.current_question.answer.lower() == "true":
+        correct()
+    else:
+        incorrect()
 
 
 def false_ticked():
     display_q()
     next_q("false")
-
-
-def next_q(answer):
-    if quiz.current_question.answer.lower() == answer:
+    if quiz.current_question.answer.lower() == "false":
         correct()
     else:
         incorrect()
+
+
+def next_q(answer):
     quiz.next_question(answer)
     display_q()
 
@@ -119,9 +124,8 @@ for question in question_data:
 
 # create quiz object using QuizBrain and pass in list of question objects
 quiz = QuizBrain(question_bank)
-for q in question_bank:
-    print(q.text)
 
+#write first question
 canvas.itemconfig(quiz_text, text=f"{quiz.question_number + 1} {html.unescape(quiz.current_question.text)}")
 
 # show the score and score to beat
