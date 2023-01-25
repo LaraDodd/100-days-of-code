@@ -3,7 +3,7 @@ from tkinter import *
 from quiz_brain import QuizBrain
 
 
-class QuizInterface():
+class QuizInterface:
     """this module handles everything to do with the UI, the class QuizBrain is passed into it in initialisation so that
     the quiz functionality can be used e.g. next question shown in UI and answer checking"""
 
