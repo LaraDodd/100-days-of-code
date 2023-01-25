@@ -2,6 +2,7 @@ from question_model import Question
 from data import question_data
 from quiz_brain import QuizBrain
 from ui import QuizInterface
+from leaderboard import Leaderboard
 
 # create list of question objects using Question class from question model module
 question_bank = []
@@ -15,4 +16,5 @@ for question in question_data:
 quiz = QuizBrain(question_bank)
 
 # create quiz ui object from QuizInterface class with quiz object as input
-quiz_ui = QuizInterface(quiz)
+leaderboard = Leaderboard(quiz)
+quiz_ui = QuizInterface(quiz, leaderboard)

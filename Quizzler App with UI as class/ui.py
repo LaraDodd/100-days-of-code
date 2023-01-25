@@ -1,13 +1,15 @@
 THEME_COLOR = "#375362"
 from tkinter import *
 from quiz_brain import QuizBrain
+from leaderboard import Leaderboard
 
 
-class QuizInterface:
+class QuizInterface():
     """this module handles everything to do with the UI, the class QuizBrain is passed into it in initialisation so that
     the quiz functionality can be used e.g. next question shown in UI and answer checking"""
 
-    def __init__(self, quiz_object: QuizBrain):
+    def __init__(self, quiz_object: QuizBrain, leaderboard_object: Leaderboard):
+        self.leaderboard = leaderboard_object
         self.quiz = quiz_object  # this is QuizBrain object
 
         # create the GUI window
@@ -51,7 +53,6 @@ class QuizInterface:
 
         self.window.mainloop()
 
-
     def get_next_question(self):
         """uses QuizBrain to check if questions left, if there are, calls next question which returns the current
         question as a string. Writes current question as text in canvas. If no questions left, disables buttons and
@@ -65,6 +66,8 @@ class QuizInterface:
                                                                 f" {self.quiz.score}/{self.quiz.question_number}")
             self.wrong_button.config(state="disabled")
             self.right_button.config(state="disabled")
+            self.leaderboard.add_to_leaderboard()
+            self.window.after(1000, exit)
 
     def false_selected(self):
         """uses QuizBrain to call check_answer method with 'false' as input, this returns a boolean indicating whether

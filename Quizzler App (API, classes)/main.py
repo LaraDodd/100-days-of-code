@@ -62,7 +62,7 @@ def display_q():
                                           f"{quiz.score}/{quiz.question_number}", font=("Ariel", 30, "italic"))
         score.config(text=f"Your score: {quiz.score}/{quiz.question_number}\n")
         add_to_leaderboard()
-        # window.after(5000, exit)
+
 
 
 def true_ticked():
