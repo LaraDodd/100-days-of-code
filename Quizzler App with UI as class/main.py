@@ -16,5 +16,4 @@ for question in question_data:
 quiz = QuizBrain(question_bank)
 
 # create quiz ui object from QuizInterface class with quiz object as input
-leaderboard = Leaderboard(quiz)
-quiz_ui = QuizInterface(quiz, leaderboard)
+quiz_ui = QuizInterface(quiz)

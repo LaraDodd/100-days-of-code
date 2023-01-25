@@ -10,7 +10,7 @@ class Leaderboard:
         Args:
             quiz_object is an object created by the QuizBrain class which contains all quiz functionality"""
         self.quiz = quiz_object
-        self.add_to_leaderboard()
+
 
     def add_to_leaderboard(self):
         """pop up asking user to enter name, checks for leaderboard csv, if doesn't exist, creates it and adds name

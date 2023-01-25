@@ -4,13 +4,13 @@ from quiz_brain import QuizBrain
 from leaderboard import Leaderboard
 
 
-class QuizInterface():
+class QuizInterface(Leaderboard):
     """this module handles everything to do with the UI, the class QuizBrain is passed into it in initialisation so that
     the quiz functionality can be used e.g. next question shown in UI and answer checking"""
 
-    def __init__(self, quiz_object: QuizBrain, leaderboard_object: Leaderboard):
-        self.leaderboard = leaderboard_object
+    def __init__(self, quiz_object: QuizBrain):
         self.quiz = quiz_object  # this is QuizBrain object
+        super().__init__(self.quiz)
 
         # create the GUI window
         self.window = Tk()
@@ -66,7 +66,7 @@ class QuizInterface():
                                                                 f" {self.quiz.score}/{self.quiz.question_number}")
             self.wrong_button.config(state="disabled")
             self.right_button.config(state="disabled")
-            self.leaderboard.add_to_leaderboard()
+            self.add_to_leaderboard()
             self.window.after(1000, exit)
 
     def false_selected(self):
