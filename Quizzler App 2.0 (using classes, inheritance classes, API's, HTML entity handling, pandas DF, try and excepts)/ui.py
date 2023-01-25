@@ -49,8 +49,6 @@ class QuizInterface(Leaderboard):
         # initialise get next question which uses quiz brain class to write the first question into the speech bubble
         self.get_next_question()
 
-        # you can't call specific attributes from a passed in class, you can only call functions from it
-
         self.window.mainloop()
 
     def get_next_question(self):
