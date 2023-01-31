@@ -22,6 +22,8 @@ MORSE_CODE_DICT = {'A': '.-', 'B': '-...',
 class Solution:
 
     def morse_correct(self, text):
+        if text == "":
+            return False
         try:
             word_list = text.split("   ")
         except:
