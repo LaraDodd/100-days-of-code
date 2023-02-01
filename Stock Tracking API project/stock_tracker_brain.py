@@ -18,11 +18,10 @@ def significant_percentage_change(percentage_change: float) -> bool:
 
 class StockTrackerBrain(Data):
 
-    def __init__(self, stock_name, stock_symbol):
-        self.stock_symbol = stock_symbol
-        self.stock_name = stock_name
+    def __init__(self, data_object):
+        self.data = data_object
+        super().__init__(stock_symbol=self.data.stock_symbol, stock_name=self.data.stock_name)
         self.percentage_change = round(self.get_open_percentage_difference(), 2)
-        super().__init__(stock_symbol=self.stock_symbol, stock_name=self.stock_name)
 
 
     def get_open_percentage_difference(self) -> float:
@@ -34,7 +33,6 @@ class StockTrackerBrain(Data):
         percentage_difference - float indicating the percentage difference between the 2 most recent close values"""
 
         # pull stock data as a json
-        stock_data = self.get_stock_data()
         stock_data = self.get_stock_data()
 
         # use datetime to pull dates

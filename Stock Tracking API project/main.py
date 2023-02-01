@@ -1,14 +1,13 @@
 from data import Data
 from stock_tracker_brain import StockTrackerBrain, significant_percentage_change
 
-STOCK = "SPOT"
-COMPANY_NAME = "Spotify"
+STOCK = "TSLA"
+COMPANY_NAME = "Tesla"
 
 
 # ========= MAIN CODE ==========
 tesla_data = Data(stock_name=COMPANY_NAME, stock_symbol=STOCK)
-tesla_tracker_brain = StockTrackerBrain(stock_name=COMPANY_NAME, stock_symbol=STOCK) #need to figure out a way to pass in
-# data object instead of just attributes again
+tesla_tracker_brain = StockTrackerBrain(tesla_data)
 
 # call function to find percentage difference
 today_percentage_difference = tesla_tracker_brain.percentage_change
